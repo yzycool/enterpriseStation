@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="./tailwind.css" /> -->
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="bg-white w-[960px] mx-auto">
+    <nav class="flex justify-between px-8 py-4">
+      <div class="flex space-x-4">
+        <a class="text-sm font-semibold text-gray-700" href="#"> 企业站 </a>
+      </div>
+      <div class=" flex space-x-4">
+        <div class="tabs text-sm font-semibold text-gray-700 " onclick="openTab(event, 'Tab1', 0)">
+          <span class="tab active">首页</span>
+        </div>
+        <div class="tabs text-sm font-semibold text-gray-700" onclick="openTab(event, 'Tab2', 1)">
+          <span class="tab">新闻列表页</span>
+        </div>
+        <div class="tabs text-sm font-semibold text-gray-700" onclick="openTab(event, 'Tab3', 2)">
+          <span class="tab">关于我们</span>
+        </div>
+      </div>
+    </nav>
+    <main class="">
+      <div id="Tab1" class="tabcontent hidden">
+        <!-- 轮播图 -->
+        <div class="slideshow-container">
+          <div class="slides">
+            <div class="slide">
+              <img src="./img/01.jpg" alt="Slide 1">
+            </div>
+            <div class="slide">
+              <img src="./img/02.jpg" alt="Slide 2">
+            </div>
+            <div class="slide">
+              <img src="./img/03.jpg" alt="Slide 3">
+            </div>
+          </div>
+          <div class="indicators"></div>
+        </div>
+        <!-- 服务范围 -->
+        <div class="my-6 w-full flex justify-between h-[713px]">
+          <div class="animate-slide-left  relative  w-[360px] h-[351px]">
+            <div class=" absolute text-2xl font-medium whitespace-nowrap ">服务范围</div>
+            <p class="absolute top-11 ">
+              依托百度政务混合云，汇聚城市管理及公安等政务领域的自有数据及互联网公开数据，基于百度大数据多年积累的行业模型及实战经验，提供从数据整合治理到分析挖掘的一站式大数据解决方案，助力智慧政务新时代。<br><br>
+
+              全渠道零售方案包括B2C、O2O、B2B的场景，提供APP/小程序，支持对接饿了么、美团等第三方外卖平台，基于阿里巴巴多年沉淀的业务中台技术，建立商品、会员、交易、营销等共享服务中心，实现全渠道数据的共享和一致，帮助零售商打造线上、线下无差别的全渠道销售能力。
+            </p>
+          </div>
+          <div class="animate-slide-right w-[350px] top-[20px]  relative">
+            <img src="./img/04.jpg" class=" w-[128px] h-[128px] top-[172px] right-[366px] absolute " alt="">
+            <img src="./img/05.jpg" class=" w-[350px] h-[300px] top-0 right-0 absolute " alt="">
+            <img src="./img/06.jpg" class=" w-[329px]  h-[242px] top-[314px] right-[236px] absolute " alt="">
+            <img src="./img/07.jpg" class=" w-56 h-36 top-[314px] right-0 absolute " alt="">
+          </div>
+        </div>
+        <!-- 企业文化 -->
+        <div class="parallax-container relative h-[260px]">
+          <div class="background-layer absolute top[10px] left-0 w-full h-[260px] bg-cover bg-no-repeat bg-fixed ">
+
+          </div>
+          <div class="w-full h-full bg-black opacity-70 absolute top-0 left-0"></div>
+          <div class="absolute top-[50px] text-white z-[1] transition-all">
+            作为中国专业的企业文化咨询公司，我们在生存和发展的历程中，也形成了自己经营管理个性和文化，我们的运营和发展都基于对这些文化涵盖的信念、信条和原则持之以恒、不折不扣地执行，所有公司的成员的所有行为均需与这些标准和原则保持高度统一。<br><br>
+            我们相信，企业的战略可以改变，领导可以更换，甚至文化的表现也要与时俱进，总之一切都可以调整，唯一能保持并引领我们的，只有我们的文化核心。只有信念的坚持才能带来企业的持续增长，只有统一的意志才能锻炼出优秀的队伍，总之只有文化才能使我们长青。
+          </div>
+        </div>
+        <!-- 团队介绍 -->
+        <div class="h-[600px] text-center">
+          <div class="h-[150px]">团队介绍</div>
+          <div class="flex text-white">
+            <div class="team-img-box-one w-[320px] h-[450px]">
+              <!-- <img src="./img/09.jpg" class="w-[320px] h-[450px]   " alt=""> -->
+              <div class="mt-[301px] animate-slide-right">
+                <div class="">Jon Smith</div>
+                <div>特级教师，从事教育工作10年</div>
+                <div>More information</div>
+              </div>
+            </div>
+            <div class="team-img-box-two w-[320px] h-[450px]">
+              <div class="mt-[301px] animate-slide-right">
+                <div>Jon Smith</div>
+                <div>特级教师，从事教育工作10年</div>
+                <div>More information</div>
+              </div>
+            </div>
+            <div class="team-img-box-three w-[320px] h-[450px]">
+              <div class="mt-[301px] animate-slide-right">
+                <div>Jon Smith</div>
+                <div>特级教师，从事教育工作10年</div>
+                <div>More information</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 新闻动态 -->
+        <div class="h-[556px] text-center">
+          <div class="h-[150px]">新闻动态</div>
+          <div class="h-full"></div>
+
+        </div>
+      </div>
+      <div id="Tab2" class="tabcontent w-full hidden">新闻列表</div>
+      <div id="Tab3" class="tabcontent w-full hidden">关于我们</div>
+    </main>
+  </div>
+
+  <script>
+    //1. tab切换
+    document.addEventListener('DOMContentLoaded', function () {
+      // 默认打开第一个tab
+      document.getElementById('Tab1').style.display = 'block'
+    })
+
+    function openTab (evt, tabName, index) {
+      var i, tabcontent, tablinks
+
+      // 隐藏所有tab内容
+      tabcontent = document.getElementsByClassName('tabcontent')
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = 'none'
+      }
+
+      // 移除所有按钮的激活状态
+      let tabs = document.querySelectorAll('.tab');
+      // 移除所有选项卡的激活样式
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+      });
+      tabs[index].classList.add('active');
+      // 显示当前tab内容，并激活按钮
+      document.getElementById(tabName).style.display = 'block'
+      // evt.currentTarget.className += ' active'
+    }
+    //2. 轮播图
+    let slideIndex = 0;
+    let slides = document.querySelectorAll('.slide');
+    let indicatorsContainer = document.querySelector('.indicators');
+    // let progressBar = document.createElement('div');
+    // progressBar.classList.add('progress-bar');
+    // document.querySelector('.slideshow-container').appendChild(progressBar);
+
+    // 创建页面指示器
+    slides.forEach((slide, index) => {
+      let indicator = document.createElement('span');
+      indicator.classList.add('indicator');
+      indicator.setAttribute('data-index', index);
+      indicatorsContainer.appendChild(indicator);
+    });
+
+    let indicators = document.querySelectorAll('.indicator');
+    let progressInterval;
+
+    function showSlides () {
+      slideIndex++;
+      if (slideIndex >= slides.length) {
+        slideIndex = 0;
+      }
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[slideIndex].classList.add('active');
+
+      indicators.forEach(indicator => indicator.classList.remove('active'));
+      indicators[slideIndex].classList.add('active');
+
+      // progressBar.style.width = '100%';
+      clearInterval(progressInterval);
+      progressInterval = setInterval(() => {
+        // progressBar.style.width = '0';
+        showSlides();
+      }, 5000);
+    }
+    function startAutoPlay () {
+      progressInterval = setInterval(() => {
+        // progressBar.style.width = '0';
+        showSlides();
+      }, 5000);
+    }
+
+    function stopAutoPlay () {
+      console.log('停止点击')
+      clearInterval(progressInterval);
+    }
+    showSlides();
+
+    indicators.forEach(indicator => {
+      indicator.addEventListener('click', function () {
+        slideIndex = parseInt(this.getAttribute('data-index')) - 1;
+        showSlides();
+      });
+    });
+    // 鼠标悬停和离开事件
+    document.querySelector('.slideshow-container').addEventListener('mouseenter', stopAutoPlay); // <-- 差异：鼠标进入时停止自动播放
+    document.querySelector('.slideshow-container').addEventListener('mouseleave', startAutoPlay); // <-- 差异：鼠标离开时重新开始自动播放
+    //4. 图片文字从两边切入动作
+    // 获取要滑入的元素
+    const slideLeftElements = document.querySelectorAll('.animate-slide-left')
+    const slideRightElements = document.querySelectorAll('.animate-slide-right')
+
+    // 监听滚动事件
+    window.addEventListener('scroll', () => {
+      // 遍历每个要滑入的元素
+      slideLeftElements.forEach(element => {
+        console.log('element', element)
+        // 判断元素是否在可视范围内
+        if (isElementInViewport(element)) {
+          // 添加滑入的 CSS 类
+          element.classList.add('slide-left-in')
+        }
+      })
+      slideRightElements.forEach(element => {
+        console.log('element', element)
+        // 判断元素是否在可视范围内
+        if (isElementInViewport(element)) {
+          // 添加滑入的 CSS 类
+          element.classList.add('slide-right-in')
+        }
+      })
+    })
+
+    // 判断元素是否在可视范围内的函数
+    function isElementInViewport (el) {
+      const rect = el.getBoundingClientRect()
+      console.log('rect', rect)
+      return rect.top <= 800
+    }
+
+  </script>
+</body>
+
+</html>

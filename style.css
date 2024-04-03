@@ -1,0 +1,97 @@
+.tabs {
+  position: relative;
+}
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px; /* 线条高度 */
+  background-color: transparent; /* 默认为透明 */
+}
+.tab.active::after {
+  background-color: red; /* 激活时的线条颜色 */
+  content: ''; /* 清除原有内容 */
+}
+/* //轮播图 */
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.indicators {
+  text-align: center;
+}
+
+.indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.indicator.active {
+  background-color: red;
+}
+
+.progress-bar {
+  width: 0;
+  height: 2px;
+  background-color: red;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: width 5s linear;
+}
+.animate-slide-left {
+  opacity: 0.2;
+  transition: opacity 1s, transform 1s;
+  width: 350px;
+  left: 80px;
+  top: 20px;
+  font-family: 'Microsoft YaHei UI';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+  transform: translateX(-100%);
+  /* or 188% */
+
+  color: #8b8b8b;
+}
+.animate-slide-right {
+  opacity: 0.2;
+  transition: opacity 0.5s, transform 0.5s;
+  transform: translateX(100%);
+}
+
+.slide-left-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+.slide-right-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+.background-layer {
+  background-image: url('./img/08.jpg');
+  background-size: cover;
+}
+.team-img-box-one {
+  background-image: url('./img/09.jpg');
+  background-size: cover;
+}
+.team-img-box-two {
+  background-image: url('./img/010.jpg');
+  background-size: cover;
+}
+.team-img-box-three {
+  background-image: url('./img/011.jpg');
+  background-size: cover;
+}
