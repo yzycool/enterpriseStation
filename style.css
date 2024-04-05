@@ -52,14 +52,6 @@
 .animate-slide-left {
   opacity: 0.2;
   transition: opacity 1s, transform 1s;
-  width: 350px;
-  left: 80px;
-  top: 20px;
-  font-family: 'Microsoft YaHei UI';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 22px;
   transform: translateX(-100%);
   /* or 188% */
 
@@ -94,4 +86,7 @@
 .team-img-box-three {
   background-image: url('./img/011.jpg');
   background-size: cover;
+}
+.selected {
+  color: red;
 }
