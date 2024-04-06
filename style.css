@@ -50,7 +50,7 @@
   transition: width 5s linear;
 }
 .animate-slide-left {
-  opacity: 0.2;
+  opacity: 0;
   transition: opacity 1s, transform 1s;
   transform: translateX(-100%);
   /* or 188% */
@@ -58,7 +58,7 @@
   color: #8b8b8b;
 }
 .animate-slide-right {
-  opacity: 0.2;
+  opacity: 0;
   transition: opacity 0.5s, transform 0.5s;
   transform: translateX(100%);
 }

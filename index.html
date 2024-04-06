@@ -12,29 +12,33 @@
 </head>
 
 <body>
-  <div class="bg-white w-full h-full">
-    <nav class="flex justify-between px-8 py-4 bg-[#252429] text-white w-full">
+  <div class="bg-white w-full h-full max-w-[960px] mx-auto ">
+    <nav class="flex justify-between px-8 py-4 bg-black md:bg-[#252429] text-white w-full">
       <div class="flex space-x-4">
         <a class="text-sm font-semibold " href="#"> 企业站 </a>
       </div>
-      <div class=" flex space-x-4">
-        <div class="tabs text-sm font-semibold " onclick="openTab(event, 'Tab1', 0)">
+      <div class="hidden space-x-4 md:block md:flex">
+        <div class="text-sm font-semibold tabs " onclick="openTab(event, 'Tab1', 0)">
           <span class="tab active">首页</span>
         </div>
-        <div class="tabs text-sm font-semibold " onclick="openTab(event, 'Tab2', 1)">
+        <div class="text-sm font-semibold tabs " onclick="openTab(event, 'Tab2', 1)">
           <span class="tab">新闻列表页</span>
         </div>
-        <div class="tabs text-sm font-semibold " onclick="openTab(event, 'Tab3', 2)">
+        <div class="text-sm font-semibold tabs " onclick="openTab(event, 'Tab3', 2)">
           <span class="tab">关于我们</span>
         </div>
       </div>
+
+      <div id="openNavBtn" class="w-[20px] h-[15px]  md:hidden">
+        <img src="./img/icon/01.jpg" alt="">
+      </div>
     </nav>
     <main class="">
-      <div id="Tab1" class="tabcontent hidden">
+      <div id="Tab1" class="hidden tabcontent">
         <!-- 轮播图 -->
         <div class="slideshow-container">
           <div class="slides">
-            <div class="slide">
+            <div class="w-full slide ">
               <img src="./img/01.jpg" alt="Slide 1">
             </div>
             <div class="slide">
@@ -47,54 +51,62 @@
           <div class="indicators"></div>
         </div>
         <!-- 服务范围 -->
-        <div class="my-6 flex justify-between h-[713px] max-w-[1140px] mx-auto">
-          <div class="animate-slide-left  relative top-[20px] left-[80px]  w-[350px] h-[351px]">
-            <div class=" absolute text-2xl font-medium whitespace-nowrap ">服务范围</div>
-            <p class="absolute top-11 ">
+        <div class=" flex  grid grid-cols-1 justify-between  max-w-[960px] mx-auto  lg:grid-cols-2">
+          <div class="animate-slide-left  mt-[57px] overflow-hidden md:pl-[86px]  ">
+            <div
+              class="text-[24px] ml-[47px] mb-[12px] font-medium whitespace-nowrap text-[#000] md:mx-[27px] md:mb-[14px]">
+              服务范围
+            </div>
+            <p class=" top-11 mx-[27px] text-[14px] leading-[22px] text-[#8B8B8B]  md:text-[12px]">
               依托百度政务混合云，汇聚城市管理及公安等政务领域的自有数据及互联网公开数据，基于百度大数据多年积累的行业模型及实战经验，提供从数据整合治理到分析挖掘的一站式大数据解决方案，助力智慧政务新时代。<br><br>
 
               全渠道零售方案包括B2C、O2O、B2B的场景，提供APP/小程序，支持对接饿了么、美团等第三方外卖平台，基于阿里巴巴多年沉淀的业务中台技术，建立商品、会员、交易、营销等共享服务中心，实现全渠道数据的共享和一致，帮助零售商打造线上、线下无差别的全渠道销售能力。
             </p>
           </div>
-          <div class="animate-slide-right w-[350px] top-[20px]  relative">
-            <img src="./img/04.jpg" class=" w-[128px] h-[128px] top-[172px] right-[366px] absolute " alt="">
-            <img src="./img/05.jpg" class=" w-[350px] h-[300px] top-0 right-0 absolute " alt="">
-            <img src="./img/06.jpg" class=" w-[329px]  h-[242px] top-[314px] right-[236px] absolute " alt="">
-            <img src="./img/07.jpg" class=" w-56 h-36 top-[314px] right-0 absolute " alt="">
+          <div class="animate-slide-right  h-[379px] mt-[16px] md:h-[600px] relative">
+            <img src="./img/04.jpg"
+              class=" w-[82px] h-[80px] right-[245px]  top-[112px]  md:w-[128px] md:h-[128px] md:top-[172px] md:right-[366px] absolute "
+              alt="">
+            <img src="./img/05.jpg" class="w-[233px] h-[193px] right-0 top-0 md:w-[350px] md:h-[300px]   absolute "
+              alt="">
+            <img src="./img/06.jpg"
+              class="w-[218px] h-[158px] top-[205px] right-[168px]  md:w-[329px]  md:h-[242px] md:top-[314px] md:right-[246px] absolute "
+              alt="">
+            <img src="./img/07.jpg"
+              class="w-[154px] h-[98px] right-0 top-[205px] md:w-[230px] md:h-[150px] md:top-[314px]  absolute " alt="">
           </div>
         </div>
         <!-- 企业文化 -->
-        <div class="parallax-container relative h-[260px]">
+        <div class="parallax-container relative hidden h-[260px] md:block">
           <div class="background-layer absolute top[10px] left-0 w-full h-[260px] bg-cover bg-no-repeat bg-fixed ">
 
           </div>
-          <div class="w-full h-full bg-black opacity-70 absolute top-0 left-0"></div>
+          <div class="absolute top-0 left-0 w-full h-full bg-black opacity-70"></div>
           <div class="absolute top-[50px] text-white z-[1] transition-all">
             作为中国专业的企业文化咨询公司，我们在生存和发展的历程中，也形成了自己经营管理个性和文化，我们的运营和发展都基于对这些文化涵盖的信念、信条和原则持之以恒、不折不扣地执行，所有公司的成员的所有行为均需与这些标准和原则保持高度统一。<br><br>
             我们相信，企业的战略可以改变，领导可以更换，甚至文化的表现也要与时俱进，总之一切都可以调整，唯一能保持并引领我们的，只有我们的文化核心。只有信念的坚持才能带来企业的持续增长，只有统一的意志才能锻炼出优秀的队伍，总之只有文化才能使我们长青。
           </div>
         </div>
         <!-- 团队介绍 -->
-        <div class="h-[600px] text-center ">
-          <div class="h-[150px]">团队介绍</div>
-          <div class="flex text-white">
-            <div class="team-img-box-one w-[320px] h-[450px]">
-              <!-- <img src="./img/09.jpg" class="w-[320px] h-[450px]   " alt=""> -->
-              <div class="mt-[301px] animate-slide-right">
+        <div class="text-center ">
+          <div class="text-center content-center text-[24px] pt-[49px] pb-[35px]">团队介绍</div>
+          <div class="flex grid grid-cols-1 text-white md:grid-cols-3 ">
+            <div class="team-img-box-one overflow-hidden w-full h-[525px] md:max-w-[320px] md:h-[450px]">
+              <div class="mt-[376px]  animate-slide-right md:mt-[301px]">
                 <div class="">Jon Smith</div>
                 <div>特级教师，从事教育工作10年</div>
                 <div>More information</div>
               </div>
             </div>
-            <div class="team-img-box-two w-[320px] h-[450px]">
-              <div class="mt-[301px] animate-slide-right">
+            <div class="team-img-box-two overflow-hidden w-full h-[525px] md:w-[320px] md:h-[450px]">
+              <div class="mt-[376px]  animate-slide-right md:mt-[301px]">
                 <div>Jon Smith</div>
                 <div>特级教师，从事教育工作10年</div>
                 <div>More information</div>
               </div>
             </div>
-            <div class="team-img-box-three w-[320px] h-[450px]">
-              <div class="mt-[301px] animate-slide-right">
+            <div class="team-img-box-three overflow-hidden w-full h-[525px] md:w-[320px] md:h-[450px]">
+              <div class="mt-[376px]  animate-slide-right md:mt-[301px]">
                 <div>Jon Smith</div>
                 <div>特级教师，从事教育工作10年</div>
                 <div>More information</div>
@@ -103,52 +115,62 @@
           </div>
         </div>
         <!-- 新闻动态 -->
-        <div class="h-[556px] bg-[#252429] text-white">
-          <div class="h-[150px] text-center">新闻动态</div>
-          <div class="news-list  gap-x-[33px] w-full grid grid-cols-4 justify-items-center">
-            <div class="h-[393px] ">
-              <img class="h-[253px] transition-transform duration-500  hover:scale-[1.05] " src="./img/012.jpg" alt="">
-              <div class="animate-slide-right">
-                <div class="h-[36px] text-[10px] font-semibold">
+        <div class=" bg-[#252429] text-white px-[18px] pb-[27px]">
+          <div class="text-center content-center text-[24px] pt-[49px] pb-[35px]">新闻动态</div>
+          <div
+            class="grid w-full grid-cols-2 overflow-hidden gap-y-[32px] news-list justify-items-center md:grid-cols-4"
+            id="tab1-news-list">
+            <div class=" w-[167px]">
+              <img
+                class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
+                src="./img/012.jpg" alt="">
+              <div class="animate-slide-right mt-[16px] md:mt-[18px]">
+                <div class="text-[15px] font-semibold md:text-[10px]">
                   <p>2022百度AI大会前夕，解读百度大脑的半年“豹变”</p>
                 </div>
-                <div class="h-[56px] text-[7px] leading-[14px]">
+                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
                   <p>Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。
                   </p>
                 </div>
               </div>
             </div>
-            <div class="h-[393px] ">
-              <img class="h-[253px] " src="./img/012.jpg" alt="">
-              <div class="animate-slide-right">
-                <div class="h-[36px] text-[10px] font-semibold">
+            <div class=" w-[167px]">
+              <img
+                class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
+                src="./img/012.jpg" alt="">
+              <div class="animate-slide-right mt-[16px] md:mt-[18px]">
+                <div class="text-[15px] font-semibold md:text-[10px]">
                   <p>2022百度AI大会前夕，解读百度大脑的半年“豹变”</p>
                 </div>
-                <div class="h-[56px] text-[7px] leading-[14px]">
+                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
                   <p>Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。
                   </p>
                 </div>
               </div>
             </div>
-            <div class="h-[393px] ">
-              <img class="h-[253px] " src="./img/012.jpg" alt="">
-              <div class="animate-slide-right">
-                <div class="h-[36px] text-[10px] font-semibold">
+            <div class=" w-[167px]">
+              <img
+                class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
+                src="./img/012.jpg" alt="">
+              <div class="animate-slide-right mt-[16px] md:mt-[18px]">
+                <div class="text-[15px] font-semibold md:text-[10px]">
                   <p>2022百度AI大会前夕，解读百度大脑的半年“豹变”</p>
                 </div>
-                <div class="h-[56px] text-[7px] leading-[14px]">
+                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
                   <p>Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。
                   </p>
                 </div>
               </div>
             </div>
-            <div class="h-[393px] ">
-              <img class="h-[253px] " src="./img/012.jpg" alt="">
-              <div class="animate-slide-right">
-                <div class="h-[36px] text-[10px] font-semibold">
+            <div class=" w-[167px]">
+              <img
+                class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
+                src="./img/012.jpg" alt="">
+              <div class="animate-slide-right mt-[16px] md:mt-[18px]">
+                <div class="text-[15px] font-semibold md:text-[10px]">
                   <p>2022百度AI大会前夕，解读百度大脑的半年“豹变”</p>
                 </div>
-                <div class="h-[56px] text-[7px] leading-[14px]">
+                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
                   <p>Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。
                   </p>
                 </div>
@@ -158,37 +180,41 @@
 
         </div>
       </div>
-      <div id="Tab2" class="tabcontent w-full hidden">
-        <div class="new-header h-[105px] text-center mt-[59px]">
+      <div id="Tab2" class="hidden w-full tabcontent">
+        <div class="new-header text-center content-center text-[24px] pt-[49px] pb-[35px]">
           新闻列表
         </div>
-        <div class="news-list  gap-x-[33px] w-full grid grid-cols-2 justify-items-center md:grid-cols-4" id="news-list">
+        <div
+          class="news-list  grid w-full grid-cols-2 overflow-hidden gap-y-[32px]  justify-items-center md:grid-cols-4"
+          id="tab2-news-list">
 
         </div>
-        <div class="page-setup-box">
-          <div id="pagination"></div>
-          <div>
-            <input type="number" id="gotoPageInput" min="1" max="10"> <!-- 假设最多有 10 页 -->
+        <div class="flex justify-center  my-[22px] page-setup-box text-[12px] text-[#8B8B8B]">
+          <div id="pagination" class="flex justify-items-center"></div>
+          <div class="ml-[8px]">
+            前往
+            <input class="px-[4px] py-[2px] mx-[2px] rounded-sm border border-[#DCDFE6] text-center" type="number"
+              id="gotoPageInput" min="1" max="10">
+
             <button onclick="gotoPage()">跳转</button>
           </div>
         </div>
       </div>
-      <div id="Tab3" class="tabcontent w-full  hidden">
-        <div class="new-header h-[105px] text-center mt-[59px]">
+      <div id="Tab3" class="hidden w-full tabcontent">
+        <div class="new-header text-center content-center text-[24px] pt-[49px] pb-[35px]">
           关于我们
         </div>
         <div class="flex justify-center">
-          <div class="about-us-box  gap-x-[33px] w-full grid grid-cols-1 justify-items-center md:grid-cols-2  ">
-
-            <div class="w-[375px] h-[155px] text-[12px]" id="map"></div>
-
-            <div class="text-[7px]">
-              <p class="text-[12px] font-semibold">一家专注系统高端定制开发的公司</p>
+          <div
+            class="about-us-box  text-[#353535] gap-x-[33px] w-full grid grid-cols-1 justify-items-center md:grid-cols-2 md:px-[90px] ">
+            <div class="w-full h-[230px] text-[12px] md:h-[155px]" id="map"></div>
+            <div class="text-[14px] leading-[24px] px-[18px] py-[27px] md:text-[7px] md:px-0 md:py-0 md:leading-[14px]">
+              <p class="text-[18px] md:text-[12px] font-semibold mb-[12px]">一家专注系统高端定制开发的公司</p>
               <p>互联网指的是是网络与网络之间所串连成的庞大网络，这些网络以一组通用的协议相连，形成逻辑上的单一巨大国际网络。
                 互联网始于1969年美国的阿帕网。这种将计算机网络互相联接在一起的方法可称作“网络互联”，在这基础上发展出覆盖全世界的全球性互联网络称互联网，即是互相连接一起的网络结构。<br><br>
                 我们出色的专业开发团队扎实的技术支持，优质高效的服务意识和丰厚的资源优势，提供专业的网站建设，微信小程序，APP开发，等技术服务。成果，专注于为客户提供专业有效的互联网系统解决方案。
               </p>
-              <div>地址：中国山东省青岛市市南区某某中路20号</div>
+              <div class="mt-[12px]">地址：中国山东省青岛市市南区某某中路20号</div>
               <div>邮箱：1370XXX171</div>
               <div>电话：0532-8888888</div>
             </div>
@@ -196,21 +222,40 @@
         </div>
       </div>
     </main>
-    <footer class="w-full bg-[#FF350D] text-white">
-      <div class="w-full h-[109px] flex flex-col items-center ">
-        <div class="w-[492px] grid grid-cols-3 justify-items-center text-[8px] my-[24px]">
+    <footer
+      class="w-full bg-[#FF350D] text-white pl-[32px] pr-[16px] pt-[16px] pb-[27px] leading-[15px] text-[12px]  md:text-[8px] md:leading-[25px]">
+      <div class="flex flex-col w-full md:items-center ">
+        <div class=" grid grid-cols-1  my-[24px] md:grid-cols-3 gap-y-[12px] md:justify-items-center">
           <p>地址：中国山东省青岛市市南区某某中路20号</p>
           <p>邮箱：1370XXX171@qq.com</p>
           <p>电话：0591-88888888</p>
         </div>
-        <div class="flex text-[8px]">
-          <img src="./img/01.jpg" class="w-[25px] h-[25px] mr-[6px]" alt="">
-          <div class="w-[395px]  leading-[25px]">
-            <p>Copyright © 2009 - 2022 Cld , All Rights Reserved 某某网络科技有限公司 版权所有 陕ICP备xxxxxxx号</p>
+        <div class="flex">
+          <img src="./img/01.jpg" class="w-[36px] h-[36px] mr-[6px]" alt="">
+          <div class="">
+            <p>Copyright © 2009 - 2022 Cld,All Rights Reserved 网络科技有限公司 版权所有 陕ICP备xxxxxxx号</p>
           </div>
         </div>
       </div>
     </footer>
+    <div id="drawerNav"
+      class="drawer-nav px-[27px] py-[22px] fixed top-0 right-[-250px] w-[250px] h-full transition-all bg-[#252429] duration-500 z-[100] md:hidden">
+      <div class="flex justify-end w-full">
+        <img src="./img/icon/03.jpg" class="w-[19px] h-[19px]" id="closeNavBtn" />
+      </div>
+      <div class="text-sm py-[50px] text-white text-[16px]  border-b-2 border-[#333]   "
+        onclick="openTab(event, 'Tab1', 0)">
+        <span class="tab active">首页</span>
+      </div>
+      <div class="text-sm py-[50px] text-white text-[16px]  border-b-2 border-[#333]   "
+        onclick="openTab(event, 'Tab2', 1)">
+        <span class="tab">新闻列表页</span>
+      </div>
+      <div class="text-sm py-[50px] text-white text-[16px]  border-b-2 border-[#333]   "
+        onclick="openTab(event, 'Tab3', 2)">
+        <span class="tab">关于我们</span>
+      </div>
+    </div>
   </div>
 
   <!--引用百度地图API-->
@@ -244,7 +289,20 @@
       tabs[index].classList.add('active');
       // 显示当前tab内容，并激活按钮
       document.getElementById(tabName).style.display = 'block'
+      //关闭侧边栏
+      closeRightNavBtn()
       // evt.currentTarget.className += ' active'
+    }
+    //侧边导航栏
+
+    const openNavBtn = document.getElementById('openNavBtn')
+    openNavBtn.addEventListener('click', openRightNavBtn)
+    closeNavBtn.addEventListener('click', closeRightNavBtn)
+    function closeRightNavBtn () {
+      drawerNav.style.right = '-250px' // 将抽屉导航隐藏在右侧
+    }
+    function openRightNavBtn () {
+      drawerNav.style.right = '0' // 将抽屉导航向右滑出
     }
     //2. 轮播图
     let slideIndex = 0;
@@ -316,7 +374,6 @@
     function scrollCallback () {
       // 遍历每个要滑入的元素
       slideLeftElements.forEach(element => {
-        console.log('element', element)
         // 判断元素是否在可视范围内
         if (isElementInViewport(element)) {
           // 添加滑入的 CSS 类
@@ -324,7 +381,6 @@
         }
       })
       slideRightElements.forEach(element => {
-        console.log('element', element)
         // 判断元素是否在可视范围内
         if (isElementInViewport(element)) {
           // 添加滑入的 CSS 类
@@ -338,27 +394,28 @@
       return rect.top <= 800
     }
     //新闻列表页渲染逻辑
-    const newsList = document.getElementById('news-list')
+    const tab1NewsList = document.getElementById('tab1-news-list')
+    const tab2NewsList = document.getElementById('tab2-news-list')
     const pagination = document.getElementById('pagination')
     const gotoPageInput = document.getElementById('gotoPageInput')
 
     // 模拟新闻数据
     const newsData = [
       { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 1, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
+      { id: 2, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
+      { id: 3, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
+      { id: 4, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
+      { id: 5, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
+      { id: 6, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
+      { id: 7, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
+      { id: 8, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
+      { id: 9, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
+      { id: 10, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
+      { id: 11, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
+      { id: 12, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
+      { id: 13, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
+      { id: 14, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
+      { id: 15, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
 
       // 更多新闻数据...
     ]
@@ -367,7 +424,8 @@
     const pageSize = 2
 
     // 当前页码
-    let currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
+    let currentPage = 1
+    // parseInt(localStorage.getItem('currentPage')) || 1;
 
     // 渲染新闻列表
     function renderNewsList (page) {
@@ -378,22 +436,26 @@
       let html = ''
       news.forEach(item => {
         html +=
-          ` <div class="h-[393px] w-[174px]">
-            <img class="h-[253px] transition-transform duration-500  hover:scale-[1.05] " src="./img/012.jpg" alt="">
-            <div class="animate-slide-right">
-              <div class="h-[36px] text-[10px] font-semibold">
-                <p>${item.title}</p>
-              </div>
-              <div class="h-[56px] text-[7px] leading-[14px] ">
-                <p>
-                  ${item.content}
-                </p>
+          `
+          <a href="newDetail.html?id=${item.id}">
+            <div class="w-[167px]" >
+              <img
+                class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
+                src="./img/012.jpg" alt="">
+              <div class="animate-slide-right mt-[16px] md:mt-[18px]">
+                <div class="text-[15px] font-semibold md:text-[10px]">
+                  <p>${item.title}</p>
+                </div>
+                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
+                  <p>${item.content}</p>
+                </div>
               </div>
             </div>
-          </div>`
+            </a>
+          `
       })
 
-      newsList.innerHTML = html
+      tab2NewsList.innerHTML = html
       slideRightElements = document.querySelectorAll('.animate-slide-right')
     }
 
@@ -404,25 +466,25 @@
       let html = ''
       // 上一页按钮
       if (currentPage > 1) {
-        html += `<button onclick="goToPage(${currentPage - 1})">上一页</button>`
+        html += `<button class="px-[6px] py-[4]" onclick="goToPage(${currentPage - 1})"><</button>`
       }
 
       // 显示前5个页码
       for (let i = Math.max(1, currentPage - 2); i <= Math.min(totalPage, currentPage + 2); i++) {
         if (i === currentPage) {
-          html += `<button class="selected" onclick="goToPage(${i})">${i}</button>`
+          html += `<button class="selected px-[8px] py-[4]" onclick="goToPage(${i})">${i}</button>`
         } else {
-          html += `<button onclick="goToPage(${i})">${i}</button>`
+          html += `<button class="px-[8px] py-[4]" onclick="goToPage(${i})">${i}</button>`
         }
       }
       // 最后一页的页码
       if (totalPage > 5 && currentPage < totalPage - 2) {
-        html += `<span>...</span>`
+        html += `<span class="px-[8px] py-[4]">...</span>`
         html += `<button onclick="goToPage(${totalPage})">${totalPage}</button>`
       }
       // 下一页按钮
       if (currentPage < totalPage) {
-        html += `<button onclick="goToPage(${currentPage + 1})">下一页</button>`
+        html += `<button class="px-[6px] py-[4]" onclick="goToPage(${currentPage + 1})">></button>`
       }
 
       pagination.innerHTML = html
@@ -505,6 +567,18 @@
     }
     var map;
     initMap();
+    //模板渲染完后执行的方法
+    tab1NewsList.addEventListener('click', function (event) {
+      // 检查点击的元素是否是列表项
+      // if (event.target.tagName === 'LI') {
+      // 执行相应的操作，例如输出被点击的列表项的文本内容
+      console.log('Clicked item:', event);
+      console.log('Clicked item:', event.target.textContent);
+      // }
+    })
+  </script>
+  <script>
+
   </script>
 </body>
 
