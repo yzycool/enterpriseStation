@@ -120,7 +120,7 @@
           <div
             class="grid w-full grid-cols-2 overflow-hidden gap-y-[32px] news-list justify-items-center md:grid-cols-4"
             id="tab1-news-list">
-            <div class=" w-[167px]">
+            <!-- <div class=" w-[167px]">
               <img
                 class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
                 src="./img/012.jpg" alt="">
@@ -175,7 +175,7 @@
                   </p>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
         </div>
@@ -225,7 +225,7 @@
     <footer
       class="w-full bg-[#FF350D] text-white pl-[32px] pr-[16px] pt-[16px] pb-[27px] leading-[15px] text-[12px]  md:text-[8px] md:leading-[25px]">
       <div class="flex flex-col w-full md:items-center ">
-        <div class=" grid grid-cols-1  my-[24px] md:grid-cols-3 gap-y-[12px] md:justify-items-center">
+        <div class=" grid grid-cols-1  mb-[24px] md:grid-cols-3 gap-y-[12px] md:justify-items-center">
           <p>地址：中国山东省青岛市市南区某某中路20号</p>
           <p>邮箱：1370XXX171@qq.com</p>
           <p>电话：0591-88888888</p>
@@ -426,8 +426,36 @@
     // 当前页码
     let currentPage = 1
     // parseInt(localStorage.getItem('currentPage')) || 1;
+    //渲染主页新闻
+    function renderHomeNews () {
+      const news = newsData.slice(0, 4)
+      let html = ''
+      news.forEach(item => {
+        html +=
+          `
+          <a href="newDetail.html?id=${item.id}">
+            <div class="w-[167px]" >
+              <img
+                class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
+                src="./img/012.jpg" alt="">
+              <div class="animate-slide-right mt-[16px] md:mt-[18px]">
+                <div class="text-[15px] font-semibold md:text-[10px]">
+                  <p>${item.title}</p>
+                </div>
+                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
+                  <p>${item.content}</p>
+                </div>
+              </div>
+            </div>
+            </a>
+          `
+      })
 
-    // 渲染新闻列表
+      tab1NewsList.innerHTML = html
+      slideRightElements = document.querySelectorAll('.animate-slide-right')
+    }
+    renderHomeNews()
+    // 渲染新闻详情页列表
     function renderNewsList (page) {
       const startIndex = (page - 1) * pageSize
       const endIndex = startIndex + pageSize
@@ -567,15 +595,6 @@
     }
     var map;
     initMap();
-    //模板渲染完后执行的方法
-    tab1NewsList.addEventListener('click', function (event) {
-      // 检查点击的元素是否是列表项
-      // if (event.target.tagName === 'LI') {
-      // 执行相应的操作，例如输出被点击的列表项的文本内容
-      console.log('Clicked item:', event);
-      console.log('Clicked item:', event.target.textContent);
-      // }
-    })
   </script>
   <script>
 
