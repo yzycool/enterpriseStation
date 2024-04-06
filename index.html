@@ -259,7 +259,8 @@
   </div>
 
   <!--引用百度地图API-->
-  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=U7J2Ed8K6PnbE3bjOadhbMKxjRcjuJB7"></script>
+  <script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=U7J2Ed8K6PnbE3bjOadhbMKxjRcjuJB7">
+  </script>
   <script>
     window.addEventListener('load', function () {
       // 执行一次鼠标滚动事件的回调函数
@@ -535,6 +536,7 @@
         alert('请输入有效的页码！')
       }
     }
+
     // 初始化
     renderNewsList(currentPage)
     renderPagination()
@@ -595,10 +597,9 @@
     }
     var map;
     initMap();
-  </script>
-  <script>
 
   </script>
+
 </body>
 
 </html>
