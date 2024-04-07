@@ -36,12 +36,11 @@
                 src="./img/014.jpg" alt="">
             <div class="animate-slide-right mt-[16px] text-[#353535] md:mt-[18px]">
                 <div class="text-[16px] leading-[24px] px-[38px] text-center font-semibold md:text-[18px]">
-                    <p>把小我融入大我，立志作出我们这一代人的
-                        历史贡献</p>
+                    <p id="newTitle">把小我融入大我，立志作出我们这一代人的历史贡献</p>
                 </div>
                 <div
                     class=" text-[14px] px-[18px] leading-[24px] mt-[16px] md:text-[8px] md:leading-[14px] md:mt-[14px]">
-                    <p>把小我融入大我，立志作出我们这一代人的历史贡献(践行嘱托十年间)<br>
+                    <p id="newsContent">把小我融入大我，立志作出我们这一代人的历史贡献(践行嘱托十年间)<br>
 
                         &nbsp&nbsp&nbsp&nbsp
                         2019年1月17日，习近平总书记来到天津南开大学考察调研。在元素有机化学国家重点实验室，总书记勉励师生们把学习奋斗的具体目标同民族复兴的伟大目标结合起来，把小我融入大我，立志作出我们这一代人的历史贡献。
@@ -95,7 +94,12 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="./fetch.js">
+    </script>
     <script>
+        let newTitle = document.getElementById('newTitle');
+        let newsContent = document.getElementById('newsContent');
+        document.addEventListener('DOMContentLoaded', getNewDetail())
         const openNavBtn = document.getElementById('openNavBtn')
         openNavBtn.addEventListener('click', openRightNavBtn)
         closeNavBtn.addEventListener('click', closeRightNavBtn)
@@ -104,6 +108,15 @@
         }
         function openRightNavBtn () {
             drawerNav.style.right = '0' // 将抽屉导航向右滑出
+        }
+        async function getNewDetail () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            let data = await myFetch(`newsDetail?id=${id}`)
+            newTitle.textContent = data.title
+            newsContent.textContent = data.content
+            console.log('newTitle', newTitle.textContent)
+            console.log('data', data)
         }
     </script>
 </body>

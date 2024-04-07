@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <div class="bg-white w-full h-full max-w-[960px] mx-auto ">
+  <div class="w-full h-full bg-white ">
     <nav class="flex justify-between px-8 py-4 bg-black md:bg-[#252429] text-white w-full">
       <div class="flex space-x-4">
         <a class="text-sm font-semibold " href="#"> 企业站 </a>
@@ -33,8 +33,8 @@
         <img src="./img/icon/01.jpg" alt="">
       </div>
     </nav>
-    <main class="">
-      <div id="Tab1" class="hidden tabcontent">
+    <main class=" max-w-[960px] mx-auto">
+      <div id="Tab1" class="hidden tabContent">
         <!-- 轮播图 -->
         <div class="slideshow-container">
           <div class="slides">
@@ -120,67 +120,11 @@
           <div
             class="grid w-full grid-cols-2 overflow-hidden gap-y-[32px] news-list justify-items-center md:grid-cols-4"
             id="tab1-news-list">
-            <!-- <div class=" w-[167px]">
-              <img
-                class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
-                src="./img/012.jpg" alt="">
-              <div class="animate-slide-right mt-[16px] md:mt-[18px]">
-                <div class="text-[15px] font-semibold md:text-[10px]">
-                  <p>2022百度AI大会前夕，解读百度大脑的半年“豹变”</p>
-                </div>
-                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
-                  <p>Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class=" w-[167px]">
-              <img
-                class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
-                src="./img/012.jpg" alt="">
-              <div class="animate-slide-right mt-[16px] md:mt-[18px]">
-                <div class="text-[15px] font-semibold md:text-[10px]">
-                  <p>2022百度AI大会前夕，解读百度大脑的半年“豹变”</p>
-                </div>
-                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
-                  <p>Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class=" w-[167px]">
-              <img
-                class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
-                src="./img/012.jpg" alt="">
-              <div class="animate-slide-right mt-[16px] md:mt-[18px]">
-                <div class="text-[15px] font-semibold md:text-[10px]">
-                  <p>2022百度AI大会前夕，解读百度大脑的半年“豹变”</p>
-                </div>
-                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
-                  <p>Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class=" w-[167px]">
-              <img
-                class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
-                src="./img/012.jpg" alt="">
-              <div class="animate-slide-right mt-[16px] md:mt-[18px]">
-                <div class="text-[15px] font-semibold md:text-[10px]">
-                  <p>2022百度AI大会前夕，解读百度大脑的半年“豹变”</p>
-                </div>
-                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
-                  <p>Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。
-                  </p>
-                </div>
-              </div>
-            </div> -->
           </div>
 
         </div>
       </div>
-      <div id="Tab2" class="hidden w-full tabcontent">
+      <div id="Tab2" class="hidden w-full min-h-[76vh]  tabContent">
         <div class="new-header text-center content-center text-[24px] pt-[49px] pb-[35px]">
           新闻列表
         </div>
@@ -189,7 +133,27 @@
           id="tab2-news-list">
 
         </div>
-        <div class="flex justify-center  my-[22px] page-setup-box text-[12px] text-[#8B8B8B]">
+        <div class="flex justify-center relative my-[22px] page-setup-box text-[12px] text-[#8B8B8B]">
+          <div class="relative w-[60px]">
+            <button id="openPopup" class="relative h-[24px]">
+              10条/页</button>
+            <div id="popup"
+              class="popup hidden absolute bg-white border left-0  bottom-[20px] border-[#000] px-[4px] py-[6px] width-[50px]">
+              <ul class="p-0 m-0 list-none  text-[12px]">
+                <li class="mb-[5px] p-0 m-0"><span>1条/页</span></li>
+                <li class="mb-[5px] p-0 m-0"><span>2条/页</span></li>
+                <li class="mb-[5px] p-0 m-0"><span>3条/页</span></li>
+                <li class="mb-[5px] p-0 m-0"><span>4条/页</span></li>
+                <li class="mb-[5px] p-0 m-0"><span>5条/页</span></li>
+                <li class="mb-[5px] p-0 m-0"><span>6条/页</span></li>
+                <li class="mb-[5px] p-0 m-0"><span>7条/页</span></li>
+                <li class="mb-[5px] p-0 m-0"><span>8条/页</span></li>
+                <li class="mb-[5px] p-0 m-0"><span>9条/页</span></li>
+                <li class="mb-[5px] p-0 m-0"><span>10条/页</span></li>
+                <!-- 添加更多页码 -->
+              </ul>
+            </div>
+          </div>
           <div id="pagination" class="flex justify-items-center"></div>
           <div class="ml-[8px]">
             前往
@@ -200,7 +164,7 @@
           </div>
         </div>
       </div>
-      <div id="Tab3" class="hidden w-full tabcontent">
+      <div id="Tab3" class="hidden w-full tabContent">
         <div class="new-header text-center content-center text-[24px] pt-[49px] pb-[35px]">
           关于我们
         </div>
@@ -261,7 +225,16 @@
   <!--引用百度地图API-->
   <script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=U7J2Ed8K6PnbE3bjOadhbMKxjRcjuJB7">
   </script>
+  <script type="text/javascript" src="./fetch.js">
+  </script>
   <script>
+    const openPopupBtn = document.getElementById('openPopup')
+    const popup = document.getElementById('popup')
+    //选择分页
+    openPopupBtn.addEventListener('click', function () {
+      console.log('popup.style', popup.style.display)
+      popup.style.display = 'block'
+    })
     window.addEventListener('load', function () {
       // 执行一次鼠标滚动事件的回调函数
       scrollCallback();
@@ -269,16 +242,19 @@
     //1. tab切换
     document.addEventListener('DOMContentLoaded', function () {
       // 默认打开第一个tab
-      document.getElementById('Tab1').style.display = 'block'
+
+      currentBlockTab = localStorage.getItem('currentBlockTab') || 'Tab1';
+      document.getElementById(currentBlockTab).style.display = 'block'
     })
 
     function openTab (evt, tabName, index) {
-      var i, tabcontent, tablinks
+
+      var i, tabContent
 
       // 隐藏所有tab内容
-      tabcontent = document.getElementsByClassName('tabcontent')
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = 'none'
+      tabContent = document.getElementsByClassName('tabContent')
+      for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = 'none'
       }
 
       // 移除所有按钮的激活状态
@@ -290,8 +266,10 @@
       tabs[index].classList.add('active');
       // 显示当前tab内容，并激活按钮
       document.getElementById(tabName).style.display = 'block'
+      localStorage.setItem('currentBlockTab', tabName);
       //关闭侧边栏
       closeRightNavBtn()
+
       // evt.currentTarget.className += ' active'
     }
     //侧边导航栏
@@ -406,30 +384,13 @@
       { id: 2, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
       { id: 3, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
       { id: 4, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 5, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 6, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 7, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 8, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 9, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 10, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 11, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 12, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 13, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 14, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-      { id: 15, title: '2022百度AI大会前夕，解读百度大脑的半年“豹变”', content: 'Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。' },
-
-      // 更多新闻数据...
     ]
 
-    // 每页显示的新闻数量
-    const pageSize = 2
 
-    // 当前页码
-    let currentPage = 1
-    // parseInt(localStorage.getItem('currentPage')) || 1;
     //渲染主页新闻
-    function renderHomeNews () {
-      const news = newsData.slice(0, 4)
+    async function renderHomeNews () {
+      let data = await myFetch(`newList?pageNumber=${1}&pageSize=${4}`)
+      let news = data.data.list
       let html = ''
       news.forEach(item => {
         html +=
@@ -456,90 +417,9 @@
       slideRightElements = document.querySelectorAll('.animate-slide-right')
     }
     renderHomeNews()
-    // 渲染新闻详情页列表
-    function renderNewsList (page) {
-      const startIndex = (page - 1) * pageSize
-      const endIndex = startIndex + pageSize
-      const news = newsData.slice(startIndex, endIndex)
 
-      let html = ''
-      news.forEach(item => {
-        html +=
-          `
-          <a href="newDetail.html?id=${item.id}">
-            <div class="w-[167px]" >
-              <img
-                class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
-                src="./img/012.jpg" alt="">
-              <div class="animate-slide-right mt-[16px] md:mt-[18px]">
-                <div class="text-[15px] font-semibold md:text-[10px]">
-                  <p>${item.title}</p>
-                </div>
-                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
-                  <p>${item.content}</p>
-                </div>
-              </div>
-            </div>
-            </a>
-          `
-      })
 
-      tab2NewsList.innerHTML = html
-      slideRightElements = document.querySelectorAll('.animate-slide-right')
-    }
 
-    // 渲染分页按钮
-    function renderPagination () {
-      const totalPage = Math.ceil(newsData.length / pageSize)
-
-      let html = ''
-      // 上一页按钮
-      if (currentPage > 1) {
-        html += `<button class="px-[6px] py-[4]" onclick="goToPage(${currentPage - 1})"><</button>`
-      }
-
-      // 显示前5个页码
-      for (let i = Math.max(1, currentPage - 2); i <= Math.min(totalPage, currentPage + 2); i++) {
-        if (i === currentPage) {
-          html += `<button class="selected px-[8px] py-[4]" onclick="goToPage(${i})">${i}</button>`
-        } else {
-          html += `<button class="px-[8px] py-[4]" onclick="goToPage(${i})">${i}</button>`
-        }
-      }
-      // 最后一页的页码
-      if (totalPage > 5 && currentPage < totalPage - 2) {
-        html += `<span class="px-[8px] py-[4]">...</span>`
-        html += `<button onclick="goToPage(${totalPage})">${totalPage}</button>`
-      }
-      // 下一页按钮
-      if (currentPage < totalPage) {
-        html += `<button class="px-[6px] py-[4]" onclick="goToPage(${currentPage + 1})">></button>`
-      }
-
-      pagination.innerHTML = html
-    }
-
-    // 跳转到指定页码
-    function goToPage (page) {
-      currentPage = page
-      localStorage.setItem('currentPage', currentPage);
-      renderNewsList(currentPage)
-      scrollCallback();
-      renderPagination()
-    }
-    // 前往指定页码
-    function gotoPage () {
-      const page = parseInt(gotoPageInput.value)
-      if (page >= 1 && page <= Math.ceil(newsData.length / pageSize)) {
-        goToPage(page)
-      } else {
-        alert('请输入有效的页码！')
-      }
-    }
-
-    // 初始化
-    renderNewsList(currentPage)
-    renderPagination()
     //创建和初始化地图函数：
     function initMap () {
       createMap();//创建地图
@@ -599,7 +479,136 @@
     initMap();
 
   </script>
+  <script>
+    //dom节点加载完成后的操作
+    document.addEventListener('DOMContentLoaded', function () {
+      // 在 DOM 渲染完成后执行的操作
+    });
+    // 每页显示的新闻数量
+    let pageSize = 10
+    let total = 0
+    let totalPage = 0
+    // 当前页码
+    let currentPage = 1
+    let newsListData = []
+    // 初始化
+    // 渲染新闻详情页列表
+    async function renderNewsList () {
+      currentPage = parseInt(localStorage.getItem('currentPageNumber')) || 1;
+      pageSize = parseInt(localStorage.getItem('currentPageSize')) || 10;
+      openPopupBtn.textContent = `${pageSize}条/页`
+      const startIndex = (currentPage - 1) * pageSize
+      const endIndex = startIndex + pageSize
+      let data = await myFetch(`newList?pageNumber=${currentPage}&pageSize=${pageSize}`)
+      console.log('data', data)
+      const news = data.data.list
+      total = data.data.total
+      totalPage = Math.ceil(total / pageSize)
 
+      let html = ''
+      news.forEach(item => {
+        html +=
+          `
+          <a href="newDetail.html?id=${item.id}">
+            <div class="w-[167px]" >
+              <img
+                class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
+                src="${item.photoUrls}.jpg" alt="">
+              <div class="animate-slide-right mt-[16px] md:mt-[18px]">
+                <div class="text-[15px] font-semibold md:text-[10px]">
+                  <p>${item.title}</p>
+                </div>
+                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
+                  <p>${item.content}</p>
+                </div>
+              </div>
+            </div>
+            </a>
+          `
+      })
+
+      tab2NewsList.innerHTML = html
+      slideRightElements = document.querySelectorAll('.animate-slide-right')
+      //渲染完新闻列表再渲染按钮
+      renderPagination()
+    }
+    renderNewsList(currentPage)
+    // 跳转到指定页码
+    function goToPage (page) {
+      currentPage = page
+      localStorage.setItem('currentPageNumber', currentPage);
+      renderNewsList(currentPage)
+      setTimeout(() => {
+        scrollCallback();
+      }, 400)
+    }
+    // 前往指定页码
+    function gotoPage () {
+      const page = parseInt(gotoPageInput.value)
+      if (page >= 1 && page <= totalPage) {
+        goToPage(page)
+        setTimeout(() => {
+          scrollCallback();
+        }, 400)
+      } else {
+        alert('请输入有效的页码！')
+      }
+    }
+
+    // 渲染分页按钮
+    function renderPagination () {
+
+      let html = ''
+      // 上一页按钮
+      if (currentPage > 1) {
+        html += `<button class="px-[6px] py-[4]" onclick="goToPage(${currentPage - 1})"><</button>`
+      }
+
+      // 显示前5个页码
+      for (let i = Math.max(1, currentPage); i <= Math.min(totalPage, currentPage + 3); i++) {
+        if (i === currentPage) {
+          html += `<button class="selected px-[8px] py-[4]" onclick="goToPage(${i})">${i}</button>`
+        } else {
+          html += `<button class="px-[8px] py-[4]" onclick="goToPage(${i})">${i}</button>`
+        }
+      }
+      // 最后一页的页码
+      if (totalPage > 5 && currentPage < totalPage - 2) {
+        html += `<span class="px-[8px] py-[4]">...</span>`
+        html += `<button onclick="goToPage(${totalPage})">${totalPage}</button>`
+      }
+      // 下一页按钮
+      if (currentPage < totalPage) {
+        html += `<button class="px-[6px] py-[4]" onclick="goToPage(${currentPage + 1})">></button>`
+      }
+
+      pagination.innerHTML = html
+    }
+
+
+    document.addEventListener('click', function (event) {
+      // 如果点击了弹出框外部区域或者按钮外部区域
+      if (!event.target.closest('#popup') && event.target !== openPopupBtn) {
+        popup.style.display = 'none'
+      }
+
+      // 如果点击了页码链接
+      if (event.target.tagName === 'SPAN') {
+        // 获取页码链接文本内容
+        const pageNumberText = event.target.textContent.trim()
+        // 从文本内容中提取数字部分
+        const pageIndex = pageNumberText.match(/\d+/)[0]
+        // 将提取出的数字填入按钮内
+        pageSize = pageIndex
+        localStorage.setItem('currentPageSize', pageSize);
+        renderNewsList()
+        openPopupBtn.textContent = pageNumberText
+        // 隐藏弹出框
+        popup.style.display = 'none'
+      }
+    })
+
+  </script>
 </body>
 
 </html>
