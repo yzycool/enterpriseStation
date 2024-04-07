@@ -19,13 +19,13 @@
       </div>
       <div class="hidden space-x-4 md:block md:flex">
         <div class="text-sm font-semibold tabs " onclick="openTab(event, 'Tab1', 0)">
-          <span class="tab active">首页</span>
+          <span class="cursor-pointer tab active">首页</span>
         </div>
         <div class="text-sm font-semibold tabs " onclick="openTab(event, 'Tab2', 1)">
-          <span class="tab">新闻列表页</span>
+          <span class="cursor-pointer tab">新闻列表页</span>
         </div>
         <div class="text-sm font-semibold tabs " onclick="openTab(event, 'Tab3', 2)">
-          <span class="tab">关于我们</span>
+          <span class="cursor-pointer tab">关于我们</span>
         </div>
       </div>
 
@@ -33,19 +33,25 @@
         <img src="./img/icon/01.jpg" alt="">
       </div>
     </nav>
-    <main class=" max-w-[960px] mx-auto">
+    <main class=" max-w-[960px] min-h-[50vh] mx-auto">
       <div id="Tab1" class="hidden tabContent">
         <!-- 轮播图 -->
         <div class="slideshow-container">
-          <div class="slides">
-            <div class="w-full slide ">
-              <img src="./img/01.jpg" alt="Slide 1">
+          <div class="slides h-[200px] md:h-[400px] ">
+            <div class="slide w-full h-full bg-[#ccc]">
+              <img loading="lazy" class="w-full" src="https://loremflickr.com/500/210?lock=1"
+                srcset="https://loremflickr.com/500/210?lock=1 500w, https://loremflickr.com/900/378?lock=1 900w, https://loremflickr.com/1920/800?lock=1 1920w"
+                sizes="(max-width: 500px) 100vw, (max-width: 900px) 100vw, 100vw" alt="Slide 1">
             </div>
-            <div class="slide">
-              <img src="./img/02.jpg" alt="Slide 2">
+            <div class="slide w-full h-full bg-[#ccc]">
+              <img loading="lazy" class="w-full" src="https://loremflickr.com/500/210?lock=5"
+                srcset="https://loremflickr.com/500/210?lock=5 500w, https://loremflickr.com/900/378?lock=5 900w, https://loremflickr.com/1920/800?lock=5 1920w"
+                sizes="(max-width: 500px) 100vw, (max-width: 900px) 100vw, 100vw" alt="Slide 2">
             </div>
-            <div class="slide">
-              <img src="./img/03.jpg" alt="Slide 3">
+            <div class="slide w-full h-full bg-[#ccc]">
+              <img loading="lazy" class="w-full" src="https://loremflickr.com/500/210?lock=4"
+                srcset="https://loremflickr.com/500/210?lock=4 500w, https://loremflickr.com/900/378?lock=4 900w, https://loremflickr.com/1920/800?lock=4 1920w"
+                sizes="(max-width: 500px) 100vw, (max-width: 900px) 100vw, 100vw" alt="Slide 3">
             </div>
           </div>
           <div class="indicators"></div>
@@ -129,7 +135,7 @@
           新闻列表
         </div>
         <div
-          class="news-list  grid w-full grid-cols-2 overflow-hidden gap-y-[32px]  justify-items-center md:grid-cols-4"
+          class="news-list  grid w-full grid-cols-2 overflow-hidden gap-y-[32px]  min-h-[70vh] justify-items-center md:grid-cols-4"
           id="tab2-news-list">
 
         </div>
@@ -315,12 +321,9 @@
 
       // progressBar.style.width = '100%';
       clearInterval(progressInterval);
-      progressInterval = setInterval(() => {
-        // progressBar.style.width = '0';
-        showSlides();
-      }, 5000);
     }
     function startAutoPlay () {
+      console.log('开始点击')
       progressInterval = setInterval(() => {
         // progressBar.style.width = '0';
         showSlides();
@@ -393,13 +396,12 @@
       let news = data.data.list
       let html = ''
       news.forEach(item => {
-        html +=
-          `
+        html += `
           <a href="newDetail.html?id=${item.id}">
             <div class="w-[167px]" >
               <img
                 class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
-                src="./img/012.jpg" alt="">
+                src="https://loremflickr.com/320/240?random=${item.id}.jpg" alt="">
               <div class="animate-slide-right mt-[16px] md:mt-[18px]">
                 <div class="text-[15px] font-semibold md:text-[10px]">
                   <p>${item.title}</p>
@@ -411,6 +413,7 @@
             </div>
             </a>
           `
+
       })
 
       tab1NewsList.innerHTML = html
@@ -496,6 +499,7 @@
     async function renderNewsList () {
       currentPage = parseInt(localStorage.getItem('currentPageNumber')) || 1;
       pageSize = parseInt(localStorage.getItem('currentPageSize')) || 10;
+      console.log('pageSize11', pageSize)
       openPopupBtn.textContent = `${pageSize}条/页`
       const startIndex = (currentPage - 1) * pageSize
       const endIndex = startIndex + pageSize
@@ -511,9 +515,14 @@
           `
           <a href="newDetail.html?id=${item.id}">
             <div class="w-[167px]" >
-              <img
-                class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
-                src="${item.photoUrls}.jpg" alt="">
+              <div class="relative new-image-container h-[259px]  w-[167px]">
+                <img
+                class="small-image h-[259px]  w-[167px] absolute top-0 left-0 object-cover blur-md md:w-[174px] md:h-[253px] "
+                src="https://loremflickr.com/16/26?lock=${+item.id}" alt="">
+                <img
+                class="large-image h-[259px]  w-[167px] transition-transform duration-500 hidden  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
+                src="https://loremflickr.com/167/259?lock=${+item.id}" alt="">
+              </div>
               <div class="animate-slide-right mt-[16px] md:mt-[18px]">
                 <div class="text-[15px] font-semibold md:text-[10px]">
                   <p>${item.title}</p>
@@ -523,7 +532,7 @@
                 </div>
               </div>
             </div>
-            </a>
+          </a>
           `
       })
 
@@ -531,7 +540,32 @@
       slideRightElements = document.querySelectorAll('.animate-slide-right')
       //渲染完新闻列表再渲染按钮
       renderPagination()
+      groundGlass()
     }
+    function groundGlass () {
+      var containers = document.querySelectorAll('.new-image-container');
+      var loadedCount = 0; // 记录加载完成的大图数量
+
+      containers.forEach(function (container) {
+        var smallImage = container.querySelector('.small-image');
+        var largeImage = container.querySelector('.large-image');
+
+        // 监听大图加载完成事件
+        largeImage.onload = function () {
+          // 隐藏小图
+          smallImage.style.display = 'none';
+          // 显示大图
+          largeImage.style.display = 'block';
+
+          // 检查是否所有大图都加载完成
+          loadedCount++;
+          if (loadedCount === containers.length) {
+            console.log('所有大图加载完成');
+            // 在这里执行其他操作
+          }
+        };
+      });
+    };
     renderNewsList(currentPage)
     // 跳转到指定页码
     function goToPage (page) {
@@ -597,9 +631,11 @@
         // 获取页码链接文本内容
         const pageNumberText = event.target.textContent.trim()
         // 从文本内容中提取数字部分
-        const pageIndex = pageNumberText.match(/\d+/)[0]
+        const pageIndex = pageNumberText.match(/\d+/)
         // 将提取出的数字填入按钮内
         pageSize = pageIndex
+        console.log('pageSize', pageSize)
+        totalPage = Math.ceil(total / pageSize)
         localStorage.setItem('currentPageSize', pageSize);
         renderNewsList()
         openPopupBtn.textContent = pageNumberText
