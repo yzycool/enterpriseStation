@@ -54,10 +54,10 @@
                 sizes="(max-width: 500px) 100vw, (max-width: 900px) 100vw, 100vw" alt="Slide 3">
             </div>
           </div>
-          <div class="indicator-ele flex absolute left-[60%] top-[90%] translate-x-[-100%]">
-            <span class="active my-[2px] mx-[5px] p-[3px] w-[15px] h-[15px] rounded-[15px] bg-black"></span>
-            <span class=" my-[2px] mx-[5px] p-[3px] w-[15px] h-[15px]  rounded-[15px] bg-black"></span>
-            <span class=" my-[2px] mx-[5px] p-[3px] w-[15px] h-[15px]  rounded-[15px] bg-black"></span>
+          <div class="indicator-ele flex absolute left-[55%] top-[90%] translate-x-[-100%]">
+            <span class="active my-[2px] mx-[5px] p-[3px] w-[15px] h-[15px] rounded-[15px] bg-[#fff] "></span>
+            <span class=" my-[2px] mx-[5px] p-[3px] w-[15px] h-[15px]  rounded-[15px] bg-[#fff]"></span>
+            <span class=" my-[2px] mx-[5px] p-[3px] w-[15px] h-[15px]  rounded-[15px] bg-[#fff]"></span>
           </div>
         </div>
         <!-- 服务范围 -->
@@ -198,7 +198,7 @@
       </div>
     </main>
     <footer
-      class="w-full bg-[#FF350D] text-white pl-[32px] pr-[16px] pt-[16px] pb-[27px] leading-[15px] text-[12px]  md:text-[8px] md:leading-[25px]">
+      class="w-full bg-[#FF350D] text-white pl-[32px] pr-[16px] pt-[16px] pb-[27px] leading-[15px] text-[12px]  md:text-[12px] md:leading-[25px]">
       <div class="flex flex-col w-full md:items-center ">
         <div class=" grid grid-cols-1  mb-[24px] md:grid-cols-3 gap-y-[12px] md:justify-items-center">
           <p>地址：中国山东省青岛市市南区某某中路20号</p>
@@ -260,21 +260,20 @@
         indicatorEle = document.querySelectorAll('.indicator-ele span')
       slideLeftElements = document.querySelectorAll('.animate-slide-left')
       slideRightElements = document.querySelectorAll('.animate-slide-right')
-      console.log('indicatorEle', indicatorEle, indicatorEle.length)
     }
     window.addEventListener('load', function () {
       // 执行一次鼠标滚动事件的回调函数
       getEle()
-      scrollCallback();
       // showSlides();
       slideshowStart()
       listenMouseHover()
+      //3. 监听滚动事件 做左右滚动动画
+      scrollCallback();
     });
     const openPopupBtn = document.getElementById('openPopup')
     const popup = document.getElementById('popup')
     //选择分页
     openPopupBtn.addEventListener('click', function () {
-      console.log('popup.style', popup.style.display)
       popup.style.display = 'block'
     })
 
@@ -326,9 +325,6 @@
     let slideIndex = 0;
     let currentIndex = 0;
     let slides = document.querySelectorAll('.slide');
-    // let progressBar = document.createElement('div');
-    // progressBar.classList.add('progress-bar');
-    // document.querySelector('.slideshow-container').appendChild(progressBar);
 
 
     let progressInterval;
@@ -361,36 +357,16 @@
       lastImg.style.transform = 'translateX(-100%)'
 
     }
-    function slideshowStart (time = 3000) {
+    function slideshowStart (time = 5000) {
       cloneSlideDom()
       indicatorBindClick()
       progressInterval = setInterval(() => {
         nextSlide()
       }, time)
     }
-    // function showSlides () {
-    //   console.log('showSlides执行了')
-    //   slideIndex++;
-    //   if (slideIndex >= slides.length) {
-    //     slideIndex = 0;
-    //   }
-    //   //有动画的无缝
-    //   carouselListEle.style.transform = `translateX(-${slideIndex * 100}%)`
-    //   carouselListEle.style.transition = '0.5s'
-    //   currentIndex = slideIndex
-    //   //直接切换图片
-    //   // slides.forEach(slide => slide.classList.remove('active'));
-    //   // slides[slideIndex].classList.add('active');
 
-    //   // indicators.forEach(indicator => indicator.classList.remove('active'));
-    //   // indicators[slideIndex].classList.add('active');
-
-    //   // progressBar.style.width = '100%';
-    //   // clearInterval(progressInterval);
-    // }
     //自动去下一个轮播
     function nextSlide () {
-      console.log('currentIndex', currentIndex)
       if (currentIndex === indicatorEle.length - 1) {
         carouselListEle.style.transition = 'none'
         carouselListEle.style.transform = 'translateX(100%)'
@@ -402,15 +378,13 @@
     }
 
     function startAutoPlay () {
-      console.log('开始点击')
       progressInterval = setInterval(() => {
         // progressBar.style.width = '0';
         nextSlide()
-      }, 2000);
+      }, 5000);
     }
 
     function stopAutoPlay () {
-      console.log('停止点击')
       clearInterval(progressInterval);
     }
 
@@ -425,25 +399,27 @@
     //4. 图片文字从两边切入动作
     // 获取要滑入的元素
 
-    //3. 监听滚动事件 做左右滚动动画
     window.addEventListener('scroll', scrollCallback)
     //鼠标滚动的回调
     function scrollCallback () {
       // 遍历每个要滑入的元素
-      slideLeftElements.forEach(element => {
-        // 判断元素是否在可视范围内
-        if (isElementInViewport(element)) {
-          // 添加滑入的 CSS 类
-          element.classList.add('slide-left-in')
-        }
-      })
-      slideRightElements.forEach(element => {
-        // 判断元素是否在可视范围内
-        if (isElementInViewport(element)) {
-          // 添加滑入的 CSS 类
-          element.classList.add('slide-right-in')
-        }
-      })
+      if (slideLeftElements) {
+        slideLeftElements.forEach(element => {
+          // 判断元素是否在可视范围内
+          if (isElementInViewport(element)) {
+            // 添加滑入的 CSS 类
+            element.classList.add('slide-left-in')
+          }
+        })
+        slideRightElements.forEach(element => {
+          // 判断元素是否在可视范围内
+          if (isElementInViewport(element)) {
+            // 添加滑入的 CSS 类
+            element.classList.add('slide-right-in')
+          }
+        })
+      }
+
     }
     // 判断元素是否在可视范围内的函数
     function isElementInViewport (el) {
@@ -476,7 +452,7 @@
                 <div class="text-[15px] font-semibold md:text-[14px] text-center">
                   <p>${item.title}</p>
                 </div>
-                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
+                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[12px] md:leading-[14px] md:mt-[14px]">
                   <p>${item.content}</p>
                 </div>
               </div>
@@ -569,12 +545,10 @@
     async function renderNewsList () {
       currentPage = parseInt(localStorage.getItem('currentPageNumber')) || 1;
       pageSize = parseInt(localStorage.getItem('currentPageSize')) || 10;
-      console.log('pageSize11', pageSize)
       openPopupBtn.textContent = `${pageSize}条/页`
       const startIndex = (currentPage - 1) * pageSize
       const endIndex = startIndex + pageSize
       let data = await myFetch(`newList?pageNumber=${currentPage}&pageSize=${pageSize}`)
-      console.log('data', data)
       const news = data.data.list
       total = data.data.total
       totalPage = Math.ceil(total / pageSize)
@@ -630,7 +604,6 @@
           // 检查是否所有大图都加载完成
           loadedCount++;
           if (loadedCount === containers.length) {
-            console.log('所有大图加载完成');
             // 在这里执行其他操作
           }
         };
@@ -708,7 +681,6 @@
         localStorage.setItem('currentPageSize', pageSize);
         renderNewsList()
 
-        console.log('pageNumberText', pageNumberText)
         openPopupBtn.textContent = pageNumberText
         // 隐藏弹出框
         popup.style.display = 'none'

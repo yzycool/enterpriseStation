@@ -46,7 +46,7 @@ img:hover {
   margin: 0 5px;
 }
 
-.indicator.active {
+.indicator-ele .active {
   background-color: red;
 }
 

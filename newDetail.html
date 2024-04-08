@@ -102,8 +102,6 @@
             let data = await myFetch(`newsDetail?id=${id}`)
             newTitle.textContent = data.title
             newsContent.textContent = data.content
-            console.log('newTitle', newTitle.textContent)
-            console.log('data', data)
         }
     </script>
 </body>
