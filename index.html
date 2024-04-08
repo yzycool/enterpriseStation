@@ -234,8 +234,9 @@
   </div>
 
   <!--引用百度地图API-->
-  <script type="text/javascript" src="https://api.map.baidu.com/getscript?v=2.0&ak=U7J2Ed8K6PnbE3bjOadhbMKxjRcjuJB7">
-  </script>
+  <script type="text/javascript"
+    src="https://api.map.baidu.com/api?v=1.0&&type=webgl&ak=U7J2Ed8K6PnbE3bjOadhbMKxjRcjuJB7">
+    </script>
   <script type="text/javascript" src="./fetch.js">
   </script>
   <script>
@@ -477,8 +478,8 @@
       addMapOverlay();//向地图添加覆盖物
     }
     function createMap () {
-      map = new BMap.Map("map");
-      map.centerAndZoom(new BMap.Point(119.248109, 26.058779), 19);
+      map = new BMapGL.Map("map");
+      map.centerAndZoom(new BMapGL.Point(119.248109, 26.058779), 19);
     }
     function setMapEvent () {
       map.enableScrollWheelZoom();
