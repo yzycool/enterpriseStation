@@ -439,7 +439,7 @@
     //渲染主页新闻
     async function renderHomeNews () {
       let data = await myFetch(`newList?pageNumber=${1}&pageSize=${4}`)
-      let news = data.data.list
+      let news = data.data
       let html = ''
       news.forEach(item => {
         html += `
@@ -503,8 +503,8 @@
       const startIndex = (currentPage - 1) * pageSize
       const endIndex = startIndex + pageSize
       let data = await myFetch(`newList?pageNumber=${currentPage}&pageSize=${pageSize}`)
-      const news = data.data.list
-      total = data.data.total
+      const news = data.data
+      total = data.link.total
       totalPage = Math.ceil(total / pageSize)
 
       let html = ''

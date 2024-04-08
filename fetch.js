@@ -2,6 +2,7 @@ async function myFetch(url) {
   try {
     let reqUrl = `https://mock.apifox.com/m1/4281186-3923301-default/${url}`
     const response = await fetch(reqUrl)
+    console.log(response)
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
