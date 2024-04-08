@@ -170,7 +170,7 @@
             <input class="px-[4px] py-[2px] mx-[2px] rounded-sm border border-[#DCDFE6] text-center" type="number"
               id="gotoPageInput" min="1" max="10">
 
-            <button onclick="gotoPage()">跳转</button>
+            <button onclick="gotoPageBtn()">跳转</button>
           </div>
         </div>
       </div>
@@ -586,6 +586,20 @@
       renderPagination()
       groundGlass()
     }
+    function addInfoToURL (newInfo) {
+
+      // 获取当前 URL 中的查询字符串
+      const urlSearchParams = new URLSearchParams(window.location.search);
+
+      // 将新信息添加到查询字符串中
+      for (const key in newInfo) {
+        urlSearchParams.set(key, newInfo[key]);
+      }
+
+      // 更新 URL
+      const newURL = `${window.location.pathname}?${urlSearchParams.toString()}`;
+      history.pushState({}, '', newURL); // 更新浏览器地址栏的 URL
+    }
     function groundGlass () {
       var containers = document.querySelectorAll('.new-image-container');
       var loadedCount = 0; // 记录加载完成的大图数量
@@ -612,6 +626,7 @@
     renderNewsList(currentPage)
     // 跳转到指定页码
     function goToPage (page) {
+      addInfoToURL({ pageNumber: page })
       currentPage = page
       localStorage.setItem('currentPageNumber', currentPage);
       renderNewsList(currentPage)
@@ -620,7 +635,7 @@
       }, 400)
     }
     // 前往指定页码
-    function gotoPage () {
+    function gotoPageBtn () {
       const page = parseInt(gotoPageInput.value)
       if (page >= 1 && page <= totalPage) {
         goToPage(page)
@@ -677,6 +692,7 @@
         const pageIndex = pageNumberText.match(/\d+/)
         // 将提取出的数字填入按钮内
         pageSize = pageIndex
+        addInfoToURL({ pageSize: pageSize })
         totalPage = Math.ceil(total / pageSize)
         localStorage.setItem('currentPageSize', pageSize);
         renderNewsList()
