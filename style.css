@@ -25,13 +25,13 @@ img:hover {
   content: ''; /* 清除原有内容 */
 }
 /* //轮播图 */
-.slide {
+/* .slide {
   display: none;
 }
 
 .slide.active {
   display: block;
-}
+} */
 
 .indicators {
   text-align: center;

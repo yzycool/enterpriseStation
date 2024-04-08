@@ -36,29 +36,33 @@
     <main class=" max-w-[960px] min-h-[50vh] mx-auto">
       <div id="Tab1" class="hidden tabContent">
         <!-- 轮播图 -->
-        <div class="slideshow-container">
-          <div class="slides h-[200px] md:h-[400px] ">
-            <div class="slide w-full h-full bg-[#ccc]">
+        <div class="relative overflow-hidden slideshow-container">
+          <div class="slides h-[200px] md:h-[400px] flex relative transition-all duration-500">
+            <div class="slide w-full h-full shrink-0 basis-full bg-[#ccc] ">
               <img loading="lazy" class="w-full" src="https://loremflickr.com/500/210?lock=1"
                 srcset="https://loremflickr.com/500/210?lock=1 500w, https://loremflickr.com/900/378?lock=1 900w, https://loremflickr.com/1920/800?lock=1 1920w"
                 sizes="(max-width: 500px) 100vw, (max-width: 900px) 100vw, 100vw" alt="Slide 1">
             </div>
-            <div class="slide w-full h-full bg-[#ccc]">
-              <img loading="lazy" class="w-full" src="https://loremflickr.com/500/210?lock=5"
+            <div class="slide w-full h-full shrink-0 basis-full bg-[#ccc] ">
+              <img class="w-full" src="https://loremflickr.com/500/210?lock=5"
                 srcset="https://loremflickr.com/500/210?lock=5 500w, https://loremflickr.com/900/378?lock=5 900w, https://loremflickr.com/1920/800?lock=5 1920w"
                 sizes="(max-width: 500px) 100vw, (max-width: 900px) 100vw, 100vw" alt="Slide 2">
             </div>
-            <div class="slide w-full h-full bg-[#ccc]">
-              <img loading="lazy" class="w-full" src="https://loremflickr.com/500/210?lock=4"
+            <div class="slide w-full h-full shrink-0 basis-full bg-[#ccc] ">
+              <img class="w-full" src="https://loremflickr.com/500/210?lock=4"
                 srcset="https://loremflickr.com/500/210?lock=4 500w, https://loremflickr.com/900/378?lock=4 900w, https://loremflickr.com/1920/800?lock=4 1920w"
                 sizes="(max-width: 500px) 100vw, (max-width: 900px) 100vw, 100vw" alt="Slide 3">
             </div>
           </div>
-          <div class="indicators"></div>
+          <div class="indicator-ele flex absolute left-[50%] top-[90%] translate-x-[-100%]">
+            <span class="active my-[2px] mx-[5px] p-[3px] w-[15px] h-[15px] rounded-[15px] bg-black"></span>
+            <span class=" my-[2px] mx-[5px] p-[3px] w-[15px] h-[15px]  rounded-[15px] bg-black"></span>
+            <span class=" my-[2px] mx-[5px] p-[3px] w-[15px] h-[15px]  rounded-[15px] bg-black"></span>
+          </div>
         </div>
         <!-- 服务范围 -->
-        <div class=" flex  grid grid-cols-1 justify-between  max-w-[960px] mx-auto  lg:grid-cols-2">
-          <div class="animate-slide-left  mt-[57px] overflow-hidden md:pl-[86px]  ">
+        <div class=" flex  grid grid-cols-1 overflow-hidden justify-between  max-w-[960px] mx-auto  lg:grid-cols-2">
+          <div class="animate-slide-left  mt-[57px]  md:pl-[86px]  ">
             <div
               class="text-[24px] ml-[47px] mb-[12px] font-medium whitespace-nowrap text-[#000] md:mx-[27px] md:mb-[14px]">
               服务范围
@@ -234,6 +238,36 @@
   <script type="text/javascript" src="./fetch.js">
   </script>
   <script>
+    //声明元素变量方便使用
+    let carouselListEle
+    let arrowLeftEle
+    let arrowRightEle
+    let indicatorEle
+    let slideLeftElements
+    let slideRightElements
+
+    //新闻列表页渲染逻辑
+    const tab1NewsList = document.getElementById('tab1-news-list')
+    const tab2NewsList = document.getElementById('tab2-news-list')
+    const pagination = document.getElementById('pagination')
+    const gotoPageInput = document.getElementById('gotoPageInput')
+    //获取静态页面元素
+    function getEle () {
+      carouselListEle = document.querySelector('.slides'),
+        arrowLeftEle = document.querySelector('.carousel-arrow-left'),
+        arrowRightEle = document.querySelector('.carousel-arrow-right'),
+        indicatorEle = document.querySelectorAll('.indicator-ele span')
+      slideLeftElements = document.querySelectorAll('.animate-slide-left')
+      slideRightElements = document.querySelectorAll('.animate-slide-right')
+      console.log('indicatorEle', indicatorEle, indicatorEle.length)
+    }
+    window.addEventListener('load', function () {
+      // 执行一次鼠标滚动事件的回调函数
+      getEle()
+      scrollCallback();
+      // showSlides();
+      slideshowStart()
+    });
     const openPopupBtn = document.getElementById('openPopup')
     const popup = document.getElementById('popup')
     //选择分页
@@ -241,10 +275,7 @@
       console.log('popup.style', popup.style.display)
       popup.style.display = 'block'
     })
-    window.addEventListener('load', function () {
-      // 执行一次鼠标滚动事件的回调函数
-      scrollCallback();
-    });
+
     //1. tab切换
     document.addEventListener('DOMContentLoaded', function () {
       // 默认打开第一个tab
@@ -291,64 +322,103 @@
     }
     //2. 轮播图
     let slideIndex = 0;
+    let currentIndex = 0;
     let slides = document.querySelectorAll('.slide');
-    let indicatorsContainer = document.querySelector('.indicators');
     // let progressBar = document.createElement('div');
     // progressBar.classList.add('progress-bar');
     // document.querySelector('.slideshow-container').appendChild(progressBar);
 
-    // 创建页面指示器
-    slides.forEach((slide, index) => {
-      let indicator = document.createElement('span');
-      indicator.classList.add('indicator');
-      indicator.setAttribute('data-index', index);
-      indicatorsContainer.appendChild(indicator);
-    });
 
-    let indicators = document.querySelectorAll('.indicator');
     let progressInterval;
+    function moveTo (index) {
+      carouselListEle.style.transform = `translateX(-${index * 100}%)`
+      carouselListEle.style.transition = '.5s'
 
-    function showSlides () {
-      slideIndex++;
-      if (slideIndex >= slides.length) {
-        slideIndex = 0;
-      }
-      slides.forEach(slide => slide.classList.remove('active'));
-      slides[slideIndex].classList.add('active');
-
-      indicators.forEach(indicator => indicator.classList.remove('active'));
-      indicators[slideIndex].classList.add('active');
-
-      // progressBar.style.width = '100%';
-      clearInterval(progressInterval);
+      // 去掉导航点选中效果
+      let active = document.querySelector('.indicator-ele span.active')
+      active.classList.remove('active')
+      // 添加选中效果
+      indicatorEle[index].classList.add('active')
+      currentIndex = index
     }
+
+
+    function indicatorBindClick () {
+      indicatorEle.forEach((item, i) => {
+        item.onclick = function () {
+          moveTo(i);
+        }
+      })
+    }
+    function cloneSlideDom () {
+      let lastImg = carouselListEle.lastElementChild.cloneNode(true)
+      let firstImg = carouselListEle.firstElementChild.cloneNode(true)
+      carouselListEle.appendChild(firstImg)
+      carouselListEle.insertBefore(lastImg, carouselListEle.firstElementChild)
+      lastImg.style.position = 'absolute'
+      lastImg.style.transform = 'translateX(-100%)'
+
+    }
+    function slideshowStart (time = 3000) {
+      cloneSlideDom()
+      indicatorBindClick()
+      progressInterval = setInterval(() => {
+        nextSlide()
+      }, time)
+    }
+    // function showSlides () {
+    //   console.log('showSlides执行了')
+    //   slideIndex++;
+    //   if (slideIndex >= slides.length) {
+    //     slideIndex = 0;
+    //   }
+    //   //有动画的无缝
+    //   carouselListEle.style.transform = `translateX(-${slideIndex * 100}%)`
+    //   carouselListEle.style.transition = '0.5s'
+    //   currentIndex = slideIndex
+    //   //直接切换图片
+    //   // slides.forEach(slide => slide.classList.remove('active'));
+    //   // slides[slideIndex].classList.add('active');
+
+    //   // indicators.forEach(indicator => indicator.classList.remove('active'));
+    //   // indicators[slideIndex].classList.add('active');
+
+    //   // progressBar.style.width = '100%';
+    //   // clearInterval(progressInterval);
+    // }
+    //自动去下一个轮播
+    function nextSlide () {
+      console.log('currentIndex', currentIndex)
+      if (currentIndex === indicatorEle.length - 1) {
+        carouselListEle.style.transition = 'none'
+        carouselListEle.style.transform = 'translateX(100%)'
+        carouselListEle.clientHeight
+        moveTo(0)
+      } else {
+        moveTo(currentIndex + 1)
+      }
+    }
+
     function startAutoPlay () {
       console.log('开始点击')
       progressInterval = setInterval(() => {
         // progressBar.style.width = '0';
-        showSlides();
-      }, 5000);
+        nextSlide()
+      }, 2000);
     }
 
     function stopAutoPlay () {
       console.log('停止点击')
       clearInterval(progressInterval);
     }
-    showSlides();
 
-    indicators.forEach(indicator => {
-      indicator.addEventListener('click', function () {
-        slideIndex = parseInt(this.getAttribute('data-index')) - 1;
-        showSlides();
-      });
-    });
+
+
     // 鼠标悬停和离开事件
     document.querySelector('.slideshow-container').addEventListener('mouseenter', stopAutoPlay); // <-- 差异：鼠标进入时停止自动播放
     document.querySelector('.slideshow-container').addEventListener('mouseleave', startAutoPlay); // <-- 差异：鼠标离开时重新开始自动播放
     //4. 图片文字从两边切入动作
     // 获取要滑入的元素
-    const slideLeftElements = document.querySelectorAll('.animate-slide-left')
-    let slideRightElements = document.querySelectorAll('.animate-slide-right')
 
     //3. 监听滚动事件 做左右滚动动画
     window.addEventListener('scroll', scrollCallback)
@@ -373,13 +443,8 @@
     // 判断元素是否在可视范围内的函数
     function isElementInViewport (el) {
       const rect = el.getBoundingClientRect()
-      return rect.top <= 800
+      return rect.top <= 850
     }
-    //新闻列表页渲染逻辑
-    const tab1NewsList = document.getElementById('tab1-news-list')
-    const tab2NewsList = document.getElementById('tab2-news-list')
-    const pagination = document.getElementById('pagination')
-    const gotoPageInput = document.getElementById('gotoPageInput')
 
     // 模拟新闻数据
     const newsData = [
