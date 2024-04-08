@@ -15,17 +15,17 @@
   <div class="w-full h-full bg-white ">
     <nav class="flex justify-between px-8 py-4 bg-black md:bg-[#252429] text-white w-full">
       <div class="flex space-x-4">
-        <a class="text-sm font-semibold " href="#"> 企业站 </a>
+        <a class="text-[20px] font-semibold " href="#"> 企业站 </a>
       </div>
-      <div class="hidden space-x-4 md:block md:flex">
-        <div class="text-sm font-semibold tabs " onclick="openTab(event, 'Tab1', 0)">
-          <span class="cursor-pointer tab active">首页</span>
+      <div class="hidden md:block md:flex">
+        <div class="text-[14px]  font-semibold tabs mr-[88px]" onclick="openTab(event, 'Tab1', 0)">
+          <div class="cursor-pointer tab active">首页</div>
         </div>
-        <div class="text-sm font-semibold tabs " onclick="openTab(event, 'Tab2', 1)">
-          <span class="cursor-pointer tab">新闻列表页</span>
+        <div class="text-[14px] font-semibold tabs mr-[88px]" onclick="openTab(event, 'Tab2', 1)">
+          <div class="cursor-pointer tab">新闻列表页</div>
         </div>
-        <div class="text-sm font-semibold tabs " onclick="openTab(event, 'Tab3', 2)">
-          <span class="cursor-pointer tab">关于我们</span>
+        <div class="text-[14px] font-semibold tabs mr-[88px]" onclick="openTab(event, 'Tab3', 2)">
+          <div class="cursor-pointer tab">关于我们</div>
         </div>
       </div>
 
@@ -37,7 +37,7 @@
       <div id="Tab1" class="hidden tabContent">
         <!-- 轮播图 -->
         <div class="relative overflow-hidden slideshow-container">
-          <div class="slides h-[200px] md:h-[400px] flex relative transition-all duration-500">
+          <div class="relative flex transition-all duration-500 slides">
             <div class="slide w-full h-full shrink-0 basis-full bg-[#ccc] ">
               <img loading="lazy" class="w-full" src="https://loremflickr.com/500/210?lock=1"
                 srcset="https://loremflickr.com/500/210?lock=1 500w, https://loremflickr.com/900/378?lock=1 900w, https://loremflickr.com/1920/800?lock=1 1920w"
@@ -54,7 +54,7 @@
                 sizes="(max-width: 500px) 100vw, (max-width: 900px) 100vw, 100vw" alt="Slide 3">
             </div>
           </div>
-          <div class="indicator-ele flex absolute left-[50%] top-[90%] translate-x-[-100%]">
+          <div class="indicator-ele flex absolute left-[60%] top-[90%] translate-x-[-100%]">
             <span class="active my-[2px] mx-[5px] p-[3px] w-[15px] h-[15px] rounded-[15px] bg-black"></span>
             <span class=" my-[2px] mx-[5px] p-[3px] w-[15px] h-[15px]  rounded-[15px] bg-black"></span>
             <span class=" my-[2px] mx-[5px] p-[3px] w-[15px] h-[15px]  rounded-[15px] bg-black"></span>
@@ -92,7 +92,7 @@
 
           </div>
           <div class="absolute top-0 left-0 w-full h-full bg-black opacity-70"></div>
-          <div class="absolute top-[50px] text-white z-[1] transition-all">
+          <div class="absolute top-[50px] text-white z-[1] transition-all text-center px-[15%]">
             作为中国专业的企业文化咨询公司，我们在生存和发展的历程中，也形成了自己经营管理个性和文化，我们的运营和发展都基于对这些文化涵盖的信念、信条和原则持之以恒、不折不扣地执行，所有公司的成员的所有行为均需与这些标准和原则保持高度统一。<br><br>
             我们相信，企业的战略可以改变，领导可以更换，甚至文化的表现也要与时俱进，总之一切都可以调整，唯一能保持并引领我们的，只有我们的文化核心。只有信念的坚持才能带来企业的持续增长，只有统一的意志才能锻炼出优秀的队伍，总之只有文化才能使我们长青。
           </div>
@@ -103,23 +103,23 @@
           <div class="flex grid grid-cols-1 text-white md:grid-cols-3 ">
             <div class="team-img-box-one overflow-hidden w-full h-[525px] md:max-w-[320px] md:h-[450px]">
               <div class="mt-[376px]  animate-slide-right md:mt-[301px]">
-                <div class="">Jon Smith</div>
+                <div class="text-[38px]">Jon Smith</div>
                 <div>特级教师，从事教育工作10年</div>
-                <div>More information</div>
+                <div class="mt-[24px]">More information</div>
               </div>
             </div>
             <div class="team-img-box-two overflow-hidden w-full h-[525px] md:w-[320px] md:h-[450px]">
               <div class="mt-[376px]  animate-slide-right md:mt-[301px]">
-                <div>Jon Smith</div>
+                <div class="text-[38px]">Jon Smith</div>
                 <div>特级教师，从事教育工作10年</div>
-                <div>More information</div>
+                <div class="mt-[24px]">More information</div>
               </div>
             </div>
             <div class="team-img-box-three overflow-hidden w-full h-[525px] md:w-[320px] md:h-[450px]">
               <div class="mt-[376px]  animate-slide-right md:mt-[301px]">
-                <div>Jon Smith</div>
+                <div class="text-[38px]">Jon Smith</div>
                 <div>特级教师，从事教育工作10年</div>
-                <div>More information</div>
+                <div class="mt-[24px]">More information</div>
               </div>
             </div>
           </div>
@@ -178,12 +178,13 @@
         <div class="new-header text-center content-center text-[24px] pt-[49px] pb-[35px]">
           关于我们
         </div>
-        <div class="flex justify-center">
+        <div class="flex justify-center min-h-[60vh]">
           <div
             class="about-us-box  text-[#353535] gap-x-[33px] w-full grid grid-cols-1 justify-items-center md:grid-cols-2 md:px-[90px] ">
-            <div class="w-full h-[230px] text-[12px] md:h-[155px]" id="map"></div>
-            <div class="text-[14px] leading-[24px] px-[18px] py-[27px] md:text-[7px] md:px-0 md:py-0 md:leading-[14px]">
-              <p class="text-[18px] md:text-[12px] font-semibold mb-[12px]">一家专注系统高端定制开发的公司</p>
+            <div class="w-full h-[230px] text-[12px] md:h-[240px] md:w-[350px]" id="map"></div>
+            <div
+              class="text-[14px] leading-[24px] px-[18px] py-[27px] md:text-[12px] md:px-0 md:py-0 md:leading-[24px]">
+              <p class="text-[18px] md:text-[18px] font-semibold mb-[12px]">一家专注系统高端定制开发的公司</p>
               <p>互联网指的是是网络与网络之间所串连成的庞大网络，这些网络以一组通用的协议相连，形成逻辑上的单一巨大国际网络。
                 互联网始于1969年美国的阿帕网。这种将计算机网络互相联接在一起的方法可称作“网络互联”，在这基础上发展出覆盖全世界的全球性互联网络称互联网，即是互相连接一起的网络结构。<br><br>
                 我们出色的专业开发团队扎实的技术支持，优质高效的服务意识和丰厚的资源优势，提供专业的网站建设，微信小程序，APP开发，等技术服务。成果，专注于为客户提供专业有效的互联网系统解决方案。
@@ -267,6 +268,7 @@
       scrollCallback();
       // showSlides();
       slideshowStart()
+      listenMouseHover()
     });
     const openPopupBtn = document.getElementById('openPopup')
     const popup = document.getElementById('popup')
@@ -415,8 +417,11 @@
 
 
     // 鼠标悬停和离开事件
-    document.querySelector('.slideshow-container').addEventListener('mouseenter', stopAutoPlay); // <-- 差异：鼠标进入时停止自动播放
-    document.querySelector('.slideshow-container').addEventListener('mouseleave', startAutoPlay); // <-- 差异：鼠标离开时重新开始自动播放
+    function listenMouseHover () {
+      document.querySelector('.slideshow-container').addEventListener('mouseenter', stopAutoPlay); // <-- 差异：鼠标进入时停止自动播放
+      document.querySelector('.slideshow-container').addEventListener('mouseleave', startAutoPlay); // <-- 差异：鼠标离开时重新开始自动播放
+
+    }
     //4. 图片文字从两边切入动作
     // 获取要滑入的元素
 
@@ -468,7 +473,7 @@
                 class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
                 src="https://loremflickr.com/320/240?random=${item.id}.jpg" alt="">
               <div class="animate-slide-right mt-[16px] md:mt-[18px]">
-                <div class="text-[15px] font-semibold md:text-[10px]">
+                <div class="text-[15px] font-semibold md:text-[14px] text-center">
                   <p>${item.title}</p>
                 </div>
                 <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
@@ -589,10 +594,10 @@
                 src="https://loremflickr.com/167/259?lock=${+item.id}" alt="">
               </div>
               <div class="animate-slide-right mt-[16px] md:mt-[18px]">
-                <div class="text-[15px] font-semibold md:text-[10px]">
+                <div class="text-[15px] font-semibold md:text-[14px]">
                   <p>${item.title}</p>
                 </div>
-                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[7px] md:leading-[14px] md:mt-[14px]">
+                <div class=" text-[14px] leading-[24px] mt-[16px] md:text-[12px] md:leading-[14px] md:mt-[14px]">
                   <p>${item.content}</p>
                 </div>
               </div>
@@ -699,10 +704,11 @@
         const pageIndex = pageNumberText.match(/\d+/)
         // 将提取出的数字填入按钮内
         pageSize = pageIndex
-        console.log('pageSize', pageSize)
         totalPage = Math.ceil(total / pageSize)
         localStorage.setItem('currentPageSize', pageSize);
         renderNewsList()
+
+        console.log('pageNumberText', pageNumberText)
         openPopupBtn.textContent = pageNumberText
         // 隐藏弹出框
         popup.style.display = 'none'
