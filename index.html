@@ -18,13 +18,13 @@
         <a class="text-[20px] font-semibold " href="#"> 企业站 </a>
       </div>
       <div class="hidden md:block md:flex">
-        <div class="text-[14px]  font-semibold tabs mr-[88px]" onclick="openTab(event, 'Tab1', 0)">
-          <div class="cursor-pointer tab active">首页</div>
+        <div class="text-[14px]  font-semibold tabs mr-[88px]" onclick="openTab( 'Tab1', 0)">
+          <div class="cursor-pointer tab ">首页</div>
         </div>
-        <div class="text-[14px] font-semibold tabs mr-[88px]" onclick="openTab(event, 'Tab2', 1)">
+        <div class="text-[14px] font-semibold tabs mr-[88px]" onclick="openTab( 'Tab2', 1)">
           <div class="cursor-pointer tab">新闻列表页</div>
         </div>
-        <div class="text-[14px] font-semibold tabs mr-[88px]" onclick="openTab(event, 'Tab3', 2)">
+        <div class="text-[14px] font-semibold tabs mr-[88px]" onclick="openTab( 'Tab3', 2)">
           <div class="cursor-pointer tab">关于我们</div>
         </div>
       </div>
@@ -218,16 +218,13 @@
       <div class="flex justify-end w-full">
         <img src="./img/icon/03.jpg" class="w-[19px] h-[19px]" id="closeNavBtn" />
       </div>
-      <div class="text-sm py-[50px] text-white text-[16px]  border-b-2 border-[#333]   "
-        onclick="openTab(event, 'Tab1', 0)">
+      <div class="text-sm py-[50px] text-white text-[16px]  border-b-2 border-[#333]   " onclick="openTab('Tab1', 0)">
         <span class="tab active">首页</span>
       </div>
-      <div class="text-sm py-[50px] text-white text-[16px]  border-b-2 border-[#333]   "
-        onclick="openTab(event, 'Tab2', 1)">
+      <div class="text-sm py-[50px] text-white text-[16px]  border-b-2 border-[#333]   " onclick="openTab( 'Tab2', 1)">
         <span class="tab">新闻列表页</span>
       </div>
-      <div class="text-sm py-[50px] text-white text-[16px]  border-b-2 border-[#333]   "
-        onclick="openTab(event, 'Tab3', 2)">
+      <div class="text-sm py-[50px] text-white text-[16px]  border-b-2 border-[#333]   " onclick="openTab( 'Tab3', 2)">
         <span class="tab">关于我们</span>
       </div>
     </div>
@@ -283,10 +280,11 @@
       // 默认打开第一个tab
 
       currentBlockTab = localStorage.getItem('currentBlockTab') || 'Tab1';
-      document.getElementById(currentBlockTab).style.display = 'block'
+      let currentBlockTabIndex = localStorage.getItem('currentBlockTabIndex') || 0;
+      console.log('currentBlockTab', localStorage.getItem('currentBlockTab'))
+      openTab(currentBlockTab, currentBlockTabIndex)
     })
-
-    function openTab (evt, tabName, index) {
+    function openTab (tabName, index) {
 
       var i, tabContent
 
@@ -306,6 +304,7 @@
       // 显示当前tab内容，并激活按钮
       document.getElementById(tabName).style.display = 'block'
       localStorage.setItem('currentBlockTab', tabName);
+      localStorage.setItem('currentBlockTabIndex', index);
       //关闭侧边栏
       closeRightNavBtn()
 
