@@ -105,7 +105,7 @@
         }
 
         function openTab (tabName, index) {
-            var indexUrl = `index.html?tabName=${tabName}&param2=${index}`;
+            var indexUrl = `index.html?tabName=${tabName}&tabIndex=${index}`;
             // 使用 window.location.href 跳转到目标页面
             window.location.href = indexUrl;
         }

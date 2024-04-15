@@ -39,17 +39,17 @@
         <div class="relative overflow-hidden slideshow-container">
           <div class="relative flex transition-all duration-500 slides">
             <div class="slide w-full h-full shrink-0 basis-full bg-[#ccc] ">
-              <img loading="lazy" class="w-full" src="https://loremflickr.com/500/210?lock=1"
+              <img class="w-full lazyload" data-src="https://loremflickr.com/500/210?lock=1"
                 srcset="https://loremflickr.com/500/210?lock=1 500w, https://loremflickr.com/900/378?lock=1 900w, https://loremflickr.com/1920/800?lock=1 1920w"
                 sizes="(max-width: 500px) 100vw, (max-width: 900px) 100vw, 100vw" alt="Slide 1">
             </div>
             <div class="slide w-full h-full shrink-0 basis-full bg-[#ccc] ">
-              <img class="w-full" src="https://loremflickr.com/500/210?lock=5"
+              <img class="w-full lazyload" data-src="https://loremflickr.com/500/210?lock=5"
                 srcset="https://loremflickr.com/500/210?lock=5 500w, https://loremflickr.com/900/378?lock=5 900w, https://loremflickr.com/1920/800?lock=5 1920w"
                 sizes="(max-width: 500px) 100vw, (max-width: 900px) 100vw, 100vw" alt="Slide 2">
             </div>
             <div class="slide w-full h-full shrink-0 basis-full bg-[#ccc] ">
-              <img class="w-full" src="https://loremflickr.com/500/210?lock=4"
+              <img class="w-full lazyload" data-src="https://loremflickr.com/500/210?lock=4"
                 srcset="https://loremflickr.com/500/210?lock=4 500w, https://loremflickr.com/900/378?lock=4 900w, https://loremflickr.com/1920/800?lock=4 1920w"
                 sizes="(max-width: 500px) 100vw, (max-width: 900px) 100vw, 100vw" alt="Slide 3">
             </div>
@@ -74,16 +74,17 @@
             </p>
           </div>
           <div class="animate-slide-right  h-[379px] mt-[16px] md:h-[600px] relative">
-            <img src="./img/04.jpg"
-              class=" w-[82px] h-[80px] right-[245px]  top-[112px]  md:w-[128px] md:h-[128px] md:top-[172px] md:right-[366px] absolute "
+            <img data-src="./img/04.jpg"
+              class="lazyload  w-[82px] h-[80px] right-[245px]  top-[112px]  md:w-[128px] md:h-[128px] md:top-[172px] md:right-[366px] absolute "
               alt="">
-            <img src="./img/05.jpg" class="w-[233px] h-[193px] right-0 top-0 md:w-[350px] md:h-[300px]   absolute "
+            <img data-src="./img/05.jpg"
+              class="lazyload w-[233px] h-[193px] right-0 top-0 md:w-[350px] md:h-[300px]   absolute " alt="">
+            <img data-src="./img/06.jpg"
+              class="lazyload w-[218px] h-[158px] top-[205px] right-[168px]  md:w-[329px]  md:h-[242px] md:top-[314px] md:right-[246px] absolute "
               alt="">
-            <img src="./img/06.jpg"
-              class="w-[218px] h-[158px] top-[205px] right-[168px]  md:w-[329px]  md:h-[242px] md:top-[314px] md:right-[246px] absolute "
+            <img data-src="./img/07.jpg"
+              class="lazyload w-[154px] h-[98px] right-0 top-[205px] md:w-[230px] md:h-[150px] md:top-[314px]  absolute "
               alt="">
-            <img src="./img/07.jpg"
-              class="w-[154px] h-[98px] right-0 top-[205px] md:w-[230px] md:h-[150px] md:top-[314px]  absolute " alt="">
           </div>
         </div>
         <!-- 企业文化 -->
@@ -234,6 +235,8 @@
   <script type="text/javascript"
     src="https://api.map.baidu.com/api?v=1.0&&type=webgl&ak=U7J2Ed8K6PnbE3bjOadhbMKxjRcjuJB7">
     </script>
+  <!-- 引入lazy-image库 -->
+  <script src="./lazysizes.min.js" async=""></script>
   <script type="text/javascript" src="./fetch.js">
   </script>
   <script>
@@ -279,10 +282,20 @@
     document.addEventListener('DOMContentLoaded', function () {
       // 默认打开第一个tab
 
-      currentBlockTab = localStorage.getItem('currentBlockTab') || 'Tab1';
-      let currentBlockTabIndex = localStorage.getItem('currentBlockTabIndex') || 0;
-      console.log('currentBlockTab', localStorage.getItem('currentBlockTab'))
-      openTab(currentBlockTab, currentBlockTabIndex)
+      const urlParams = new URLSearchParams(window.location.search);
+      const originUrl = window.location.origin + window.location.pathname
+      console.log('originUrl', originUrl)
+      // 获取单个参数的值
+      const tabName = urlParams.get('tabName'); // 返回 '123'
+      const tabIndex = urlParams.get('tabIndex'); // 返回 '123'
+      if (tabName && tabIndex) {
+        openTab(tabName, tabIndex)
+        window.history.replaceState(null, '', originUrl);
+      } else {
+        currentBlockTab = localStorage.getItem('currentBlockTab') || 'Tab1';
+        let currentBlockTabIndex = localStorage.getItem('currentBlockTabIndex') || 0;
+        openTab(currentBlockTab, currentBlockTabIndex)
+      }
     })
     function openTab (tabName, index) {
 
@@ -438,7 +451,7 @@
 
     //渲染主页新闻
     async function renderHomeNews () {
-      let data = await myFetch(`newList?pageNumber=${1}&pageSize=${4}`)
+      let data = await myFetch(`newList?page=${1}&pageSize=${4}`)
       let news = data.data
       let html = ''
       news.forEach(item => {
@@ -446,8 +459,8 @@
           <a href="newDetail.html?id=${item.id}">
             <div class="w-[167px]" >
               <img
-                class="h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
-                src="https://loremflickr.com/320/240?random=${item.id}.jpg" alt="">
+                class="lazyload h-[259px]  w-[167px] transition-transform duration-500  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
+                data-src="https://loremflickr.com/320/240?random=${item.id}.jpg" alt="">
               <div class="animate-slide-right mt-[16px] md:mt-[18px]">
                 <div class="text-[15px] font-semibold md:text-[14px] text-center">
                   <p>${item.title}</p>
@@ -502,7 +515,7 @@
       openPopupBtn.textContent = `${pageSize}条/页`
       const startIndex = (currentPage - 1) * pageSize
       const endIndex = startIndex + pageSize
-      let data = await myFetch(`newList?pageNumber=${currentPage}&pageSize=${pageSize}`)
+      let data = await myFetch(`newList?page=${currentPage}&pageSize=${pageSize}`)
       const news = data.data
       total = data.link.total
       totalPage = Math.ceil(total / pageSize)
@@ -515,10 +528,10 @@
             <div class="w-[167px]" >
               <div class="relative new-image-container h-[259px]  w-[167px]">
                 <img
-                class="small-image h-[259px]  w-[167px] absolute top-0 left-0 object-cover blur-md md:w-[174px] md:h-[253px] "
+                class=" small-image h-[259px]  w-[167px] absolute top-0 left-0 object-cover blur-md md:w-[174px] md:h-[253px] "
                 src="https://loremflickr.com/16/26?lock=${+item.id}" alt="">
                 <img
-                class="large-image h-[259px]  w-[167px] transition-transform duration-500 hidden  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
+                class=" large-image h-[259px]  w-[167px] transition-transform duration-500 hidden  md:hover:scale-[1.05] md:w-[174px] md:h-[253px] "
                 src="https://loremflickr.com/167/259?lock=${+item.id}" alt="">
               </div>
               <div class="animate-slide-right mt-[16px] md:mt-[18px]">
@@ -580,7 +593,7 @@
     renderNewsList(currentPage)
     // 跳转到指定页码
     function goToPage (page) {
-      addInfoToURL({ pageNumber: page })
+      addInfoToURL({ page: page })
       currentPage = page
       localStorage.setItem('currentPageNumber', currentPage);
       renderNewsList(currentPage)
